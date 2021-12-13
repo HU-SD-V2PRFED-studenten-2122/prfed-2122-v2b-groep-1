@@ -2,14 +2,9 @@
 name: Learning Story
 about: Dit is een learning story template
 title: ''
-labels: learning story
+labels: ''
 assignees: Khaibar-coder34
 
 ---
 
-# Beschrijving
-....
 
-# Acceptatiecriteria
-- [ ] ....
-- [ ] ...
