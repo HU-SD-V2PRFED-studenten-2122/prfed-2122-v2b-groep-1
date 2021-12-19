@@ -26,11 +26,11 @@ User Story [Als examencommissie wil ik de afgetekende sheet kunnen goed- of afke
 
 User Story [Als student wil ik mijn niet-behaalde vakken van afgelopen jaren op kunnen zoeken, zodat ik weet hoe ik deze dit jaar kan herkansen](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/issues/5)
 
-![domeinmodel user story 1](/docs/fotos/Class%20Diagram5.jpg)
+![domeinmodel user story 1](/docs/fotos/Class%20Diagram4.jpg)
 
 # conclusie
 
-![domeinmodel user story 1](/docs/fotos/Class%20Diagram2.jpg)
+![domeinmodel user story 1](/docs/fotos/Class%20Diagram5.jpg)
 
 
 
