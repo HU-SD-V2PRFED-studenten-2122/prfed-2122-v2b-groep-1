@@ -27,10 +27,14 @@ voortgang van die dag als het werkt.
 ## Gebruiksinstructies
 ## Authors
 
-- [@cornevanbarneveld](https://github.com/cornevanbarneveld)
-- [@koen1508](https://github.com/koen1508)
-- [@Khairbar-coder34](https://github.com/Khaibar-coder34)
-- [@DanielDmln](https://github.com/DanielDmln)
+- [Corne](https://github.com/cornevanbarneveld)
+- [Koen](https://github.com/koen1508)
+- [Khairbar](https://github.com/Khaibar-coder34)
+- [Daniel](https://github.com/DanielDmln)
+- [Alex](https://github.com/eenjesta)
+- [Jan](https://github.com/eenjesta)
+
+
 
 
 
