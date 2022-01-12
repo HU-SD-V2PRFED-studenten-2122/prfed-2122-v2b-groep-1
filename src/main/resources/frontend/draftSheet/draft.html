@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <script type="module" src="../../../../../../../../Desktop/prfed-2122-v2b-groep-1-draft-goedkeuren/prfed-2122-v2b-groep-1-draft-goedkeuren/src/main/frontend/index.js"></script>
+
+    <script>
+        // HACK(keanulee): The Redux package assumes `process` exists - mock it here before
+        // the module is loaded.
+        window.process = {
+            env: {
+                NODE_ENV: 'production'
+            }
+        };
+    </script>
+
+
+</head>
+<body>
+<!-- menu????
+    <div></div>
+    --->
+
+
+<div>
+    <h>uitleg</h>
+</div>
+
+
+
+<div>
+    <zoeken-bc-lijst></zoeken-bc-lijst>
+    <bc-lijst></bc-lijst>
+    <keuring></keuring>
+    <importeer></importeer>
+
+</div>
+</body>
+</html>
