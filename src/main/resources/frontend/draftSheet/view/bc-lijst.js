@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit";
-import {ZoekBc} from "../zoek-bc/zoek-bc";
+import {ZoekBc} from "./zoek-bc";
 
 export class BcLijst extends LitElement {
 
