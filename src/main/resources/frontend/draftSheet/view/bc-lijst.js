@@ -5,11 +5,15 @@ export class BcLijst extends LitElement {
 
 
     static styles = css`
+    
     table, th, td {
-    border:1px solid black;
+        border:1px solid black;
+        padding: 10px;
+        margin: 40px;
     }
+    
     th {
-    background-color: grey;
+        background-color: grey;
     }
        
        
@@ -46,7 +50,7 @@ export class BcLijst extends LitElement {
                     <td>wgeing1</td>
                     <td>ec-toets1</td>
                     <td>Ec-cursus1</td>
-                    <td>toets & toetsvorm<1/td>
+                    <td>toets & toetsvorm</td>
                     <td>wegin1g</td>
                     <td>ec-toets1</td>
                     <td>bezem/conversie1</td>
