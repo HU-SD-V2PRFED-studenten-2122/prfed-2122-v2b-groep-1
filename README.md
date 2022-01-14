@@ -20,7 +20,8 @@ Groepsproject van blok B 2021
 * [Organisatorische Context](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/wiki/Orgainisatorische-context)
 
 ## Scrum Board
-* [Scrum board](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/projects) 
+* [Iteratie 1](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/projects/1)
+* [Iteratie 2](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/projects/5)
 
 
 
