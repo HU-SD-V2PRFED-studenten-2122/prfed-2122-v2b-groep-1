@@ -26,17 +26,12 @@ Groepsproject van blok B 2021
 
 
 ## Git-strategie
-
-
+### Taakverdeling
+Aan iedereen wordt een user story assigned en vervolgens maakt diegene een branche 
+voor zijn user story waarin hij werkt en zijn werk uiteindelijk naar main branche pusht.
 Voor eenvoud werken we allemaal op dezelfde branch. 
-We verdelen de taken en iedereen weet aan welke taak hij werkt. 
-Zodra deze taak voltooid is wordt deze meteen gepusht voor de meest 
-vloeiende werking voor het team. ’s Avonds commit- en pusht iedereen zijn 
-voortgang van die dag als het werkt.
-## Installatie
- 
-  
-## Gebruiksinstructies
+
+
 ## Authors
 
 - [Corne](https://github.com/cornevanbarneveld)
