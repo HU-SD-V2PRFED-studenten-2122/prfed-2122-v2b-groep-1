@@ -3,7 +3,7 @@
     "@web/dev-server": "^0.1.28"
   },
   "scripts": {
-    "start": "web-dev-server --node-resolve --app-index src/index.html --watch --open"
+    "start": "web-dev-server --node-resolve --app-index src/main/resources/frontend/home-page/index.html --watch --open"
   },
   "dependencies": {
     "@material/mwc-button": "^0.25.3",
