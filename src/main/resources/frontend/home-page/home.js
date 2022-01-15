@@ -11,7 +11,6 @@ class HomePage extends LitElement {
         <div class="hero__container">
             <h1 class="hero__heading">Kop van uitleg </h1><br>
             <p class="hero__description">Uitleg over hee het werkt Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatum repellendus inventore reiciendis a voluptates maiores repudiandae autem sit nihil tenetur deleniti consectetur enim natus, sed ullam non iure illo!</p><br><br>
-            
       </div> 
   </div>
         
