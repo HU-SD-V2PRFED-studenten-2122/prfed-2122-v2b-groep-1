@@ -28,6 +28,7 @@ export class BcLijst extends LitElement {
     render(){
         return html`
             <table>
+                
                 <tr>
                     <th>wgeing</th>
                     <th>ec-toets</th>
@@ -47,22 +48,27 @@ export class BcLijst extends LitElement {
                     <th>opmerkingen</th>
                 </tr>
                 <tr>
-                    <td>wgeing1</td>
-                    <td>ec-toets1</td>
-                    <td>Ec-cursus1</td>
-                    <td>toets & toetsvorm</td>
-                    <td>wegin1g</td>
-                    <td>ec-toets1</td>
-                    <td>bezem/conversie1</td>
-                    <td>nieuwe code1</td>
-                    <td>naam1</td>
-                    <td>ec-cursus1</td>
-                    <td>toets & toetsvorm1</td>
-                    <td>weging1</td>
-                    <td>ec-toets1</td>
-                    <td>periode1</td>
-                    <td>coordinator1</td>
-                    <td>opmerkingen1</td>
+                    <div contenteditable>
+
+                        <td>wgeing</td>
+                        <td>ec-toets</td>
+                        <td>Ec-cursus</td>
+                        <td>toets & toetsvorm</td>
+                        <td>weging</td>
+                        <td>ec-toets</td>
+                        <td>bezem/conversie</td>
+                        <td>nieuwe code</td>
+                        <td>naam</td>
+                        <td>ec-cursus</td>
+                        <td>toets & toetsvorm</td>
+                        <td>weging</td>
+                        <td>ec-toets</td>
+                        <td>periode</td>
+                        <td>coordinator</td>
+                        <td>opmerkingen</td>
+                        
+                    </div>
+                </tr>
             </table>
         `;
     }
