@@ -1,1 +1,1 @@
-web: java java -cp "target/dependency/*" $JAVA_OPTS org.springframework.boot.BezemConversieTool
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* org.springframework.boot.BezemConversieTool
