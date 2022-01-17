@@ -11,10 +11,42 @@ class HomePage extends LitElement {
         <div class="hero__container">
             <h1 class="hero__heading">Kop van uitleg </h1><br>
             <p class="hero__description">Uitleg over hee het werkt Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatum repellendus inventore reiciendis a voluptates maiores repudiandae autem sit nihil tenetur deleniti consectetur enim natus, sed ullam non iure illo!</p><br><br>
+
+
+            <input type="text" id="myInput" onclick="myFunction()" placeholder="Zoek Vak..." value="${this.value}">
+            <ul id="myUL">
+                <li><a href="#">Project Front-End Development</a></li>
+                <li><a href="#">Front-End Programming 2</a></li>
+
+                <li><a href="#">Agile Requirement Engineering</a></li>
+                <li><a href="#">Project Back-End Development</a></li>
+
+                <li><a href="#">Back-End Programming 2</a></li>
+                <li><a href="#">Data - Persistency</a></li>
+            </ul>
+            
       </div> 
   </div>
         
         `;
+    }
+
+
+    static myFunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
     }
 
     static get styles(){
