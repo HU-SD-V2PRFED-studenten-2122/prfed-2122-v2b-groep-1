@@ -92,14 +92,14 @@ class ZoekVak extends LitElement{
                     <input type="text" id="myInput" onclick="myFunction()" placeholder="Zoek Vak..." value="${this.value}">
 
                     <ul id="myUL">
-                        <li><a href="#">Project Front-End Development</a></li>
-                        <li><a href="#">Front-End Programming 2</a></li>
+                        <li><a href="#">Inleiding strategisch management</a></li>
+                        <li><a href="#">Leiderschapsvaardigheden</a></li>
 
-                        <li><a href="#">Agile Requirement Engineering</a></li>
-                        <li><a href="#">Project Back-End Development</a></li>
+                        <li><a href="#">Praktijk Business Developer</a></li>
+                        <li><a href="#">Resource Management 2</a></li>
 
-                        <li><a href="#">Back-End Programming 2</a></li>
-                        <li><a href="#">Data - Persistency</a></li>
+                        <li><a href="#">Analyse vaardigheden</a></li>
+                        <li><a href="#">Gedrag en cultuur in projecten</a></li>
                     </ul>
                 </div>
             </div>

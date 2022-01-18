@@ -1,9 +1,11 @@
 {
   "devDependencies": {
-    "@web/dev-server": "^0.1.28"
+    "@web/dev-server": "^0.1.28",
+    "@web/rollup-plugin-html": "^1.10.1"
   },
   "scripts": {
-    "start": "web-dev-server --node-resolve --app-index src/main/resources/images/index.html --watch --open"
+    "start": "web-dev-server --node-resolve --app-index src/main/resources/images/index.html --watch --open",
+    "build": "rollup -c --environment INCLUDE_DEPS,BUILD:development"
   },
   "dependencies": {
     "@material/mwc-button": "^0.25.3",
