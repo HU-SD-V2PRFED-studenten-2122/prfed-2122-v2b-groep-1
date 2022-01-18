@@ -1,10 +1,63 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+
+
 <html lang="en">
+
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Bezem Conversie Tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+    <script type="module" src="zoekHerkansing/index.js"></script>
+
+    <script>
+        // HACK(keanulee): The Redux package assumes `process` exists - mock it here before
+        // the module is loaded.
+        window.process = {
+            env: {
+                NODE_ENV: 'production'
+            }
+        };
+    </script>
+
 </head>
+
 <body>
 
+<boven-balk></boven-balk>
+
+<main>
+    <home-page></home-page>
+    <zoek-vak></zoek-vak>
+    <data-new-vak></data-new-vak>
+</main>
+
+
+
+
+
+<!--    <script>-->
+<!--    function myFunction() {-->
+<!--     var input, filter, ul, li, a, i, txtValue;-->
+<!--     input = document.getElementById("myInput");-->
+<!--     filter = input.value.toUpperCase();-->
+<!--     ul = document.getElementById("myUL");-->
+<!--     li = ul.getElementsByTagName("li");-->
+<!--     for (i = 0; i < li.length; i++) {-->
+<!--         a = li[i].getElementsByTagName("a")[0];-->
+<!--         txtValue = a.textContent || a.innerText;-->
+<!--         if (txtValue.toUpperCase().indexOf(filter) > -1) {-->
+<!--             li[i].style.display = "";-->
+<!--         } else {-->
+<!--             li[i].style.display = "none";-->
+<!--         }-->
+<!--     }-->
+<!-- }-->
+<!-- </script>-->
+
+
 </body>
+
 </html>
