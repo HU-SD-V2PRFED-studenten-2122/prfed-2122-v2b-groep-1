@@ -2,22 +2,21 @@
 
 ## toestandsmodel
 
-![domeinmodel user story 1](/docs/fotos/State%20Machine%20Diagram3.jpg)
+![domeinmodel user story 1](/docs/fotos/toestandsdiagram.jpg)
 
 ## omschrijving van toestanden
 
-Wanneer een BezemConversieSheet in de toestand "waiting" is, dan is de bezemconversiesheet nog een draft.
+Wanneer een Cursus in de toestand "old" is, dan is de cursus geschrapt en het valt dus onder bezem of conversie.
 
-Met de toestand "huidig" wordt de bezemconversiesheet van dit jaar bedoeld
+de toestand "new" geeft de vervangende cursus, dus de "nieuwe" cursus aan.
 
-Gearchiveerd geeft aan dat de bezemconversiesheet opgeslagen is, en niet meer huidig is.
 
 ## validatie
 
-| toestand | goedgekeurd | 
+| toestand | actief | 
 | --- | --- |
-| waiting | false | 
-| huidig | true | 
-| gearchiveerd | true | 
+| old | false | 
+| new | true | 
+
 
 
