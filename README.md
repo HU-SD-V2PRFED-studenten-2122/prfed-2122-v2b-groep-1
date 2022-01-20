@@ -5,7 +5,7 @@ Groepsproject van blok B 2021
 
 
 
-## Fuctioneel Ontwerp
+## Functioneel Ontwerp
 
 
 * [Domein model](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/blob/main/docs/domeinmodel.md)
