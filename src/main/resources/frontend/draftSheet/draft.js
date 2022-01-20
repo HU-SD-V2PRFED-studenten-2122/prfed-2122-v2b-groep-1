@@ -9,6 +9,8 @@ import './view/add-nieuwe-cursus.js';
 import './view/toetsen-list.js';
 import './view/cursussen-list.js';
 
+import '@material/mwc-formfield';
+
 
 
 

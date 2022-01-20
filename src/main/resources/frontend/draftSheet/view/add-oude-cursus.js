@@ -1,12 +1,9 @@
 import {css, html, LitElement} from "lit";
+import {Cursus} from "../model/Cursus";
+import {CursusService} from "../service/CursusService";
 
 
 class addOudeCursus extends LitElement {
-
-    constructor() {
-        super();
-
-    }
 
     static styles = css`
         #oudeCursusDialog {
@@ -32,14 +29,9 @@ class addOudeCursus extends LitElement {
         
         
         .cursus-button {
-            
             background-color: #7fbaf5;
             border: none;
-            width: 10px;
-            height: 10px;
             padding: 5px;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
             border-radius: 5px;
             font-size: 16px;
         }
@@ -51,15 +43,15 @@ class addOudeCursus extends LitElement {
         #knoppen-oude-cursus {
             text-align: center;
         }
-        
-        
-        
-        
-            
-    
-     
-    
+       
      `;
+
+
+    constructor() {
+        super();
+        this.cursusService = new CursusService();
+
+    }
 
     render(){
         return html`
@@ -67,40 +59,39 @@ class addOudeCursus extends LitElement {
                 
             <dialog id="oudeCursusDialog">
                 <h2>Voer oude Cursus in</h2>
-                
-                <label for="cursus-code"></label>
-                <input type="text" class="maakCursus" id="cursus-code" name="cursus-code" placeholder="Cursus Code">
-                <label for="cursus-naam"></label>
-                <input type="text" class="maakCursus" id="cursus-naam" name="cursus-naam" placeholder="Cursus Naam">
-                <label for="ec-cursus"></label>
-                <input type="number" class="maakCursus" step="0.5" id="ec-cursus" name="aantal-ec-voor-cursus" placeholder="EC-Cursus">
-                <label for="bezem/conversie"></label>
-                <select id="bezem/conversie" class="maakCursus" name="bezem-of-conversie" >
-                    <option value="" disabled selected hidden>bezem/conversie</option>
-                    <option>bezem</option>
-                    <option>conversie</option>
-                </select>
-
-
-
-
-
-
-                <toetsen-list></toetsen-list>
-                <add-toets></add-toets>
-                <menu id="knoppen-oude-cursus">
+                <form id="oudeCursusForm">
+                    <label for="cursus-code"></label>
+                    <input type="text" class="maakCursus" id="cursus-code" name="cursus-code" placeholder="Cursus Code">
+                    <label for="cursus-naam"></label>
+                    <input type="text" class="maakCursus" id="cursus-naam" name="cursus-naam" placeholder="Cursus Naam">
+                    <label for="ec-cursus"></label>
+                    <input type="number" class="maakCursus" step="0.5" id="ec-cursus" name="aantal-ec-voor-cursus" placeholder="EC-Cursus">
+                    <label for="bezem-conversie"></label>
+                    <select id="bezem-conversie" class="maakCursus" name="bezem-of-conversie" >
+                        <option value="" disabled selected hidden>bezem/conversie</option>
+                        <option>bezem</option>
+                        <option>conversie</option>
+                    </select>
                     
+                    <toetsen-list></toetsen-list>
+                    <add-toets></add-toets>
                     
+
+
                     <cursussen-list></cursussen-list>
                     <add-nieuwe-cursus></add-nieuwe-cursus>
-                    <mwc-button class="cursus-button" >cancel</mwc-button>
-                    <mwc-button class="cursus-button" >submit</mwc-button>
-                </menu>
+                </form>
+
+                <button class="cursus-button" @click="${this.closeDialog}">cancel</button>
+                <button class="cursus-button" @click="${this.clickHandler}">submit</button>
+                
+                
+                
                
                 
             </dialog>
                 
-            <mwc-button class="cursus-button"  @click="${this.openDialog}" raised>voeg cursus toe</mwc-button>
+            <button class="cursus-button" @click="${this.openDialog}">voeg cursus toe</button>
         `;
     }
 
@@ -110,6 +101,39 @@ class addOudeCursus extends LitElement {
         this.shadowRoot.querySelector("#oudeCursusDialog").showModal()
     }
 
+    closeDialog() {
+        this.shadowRoot.querySelector("#oudeCursusDialog").close()
+    }
+
+
+    clickHandler() {
+        var code = this.shadowRoot.querySelector('#cursus-code').value;
+        var naam = this.shadowRoot.querySelector('#cursus-naam').value;
+        var ec = this.shadowRoot.querySelector('#ec-cursus').value;
+        var bezemConversie = this.shadowRoot.querySelector('#bezem-conversie').value;
+
+        var toetsen = ["toets1"]
+        var nieuweCursussen = ["cursus1"]
+
+        this.addCursus(code,naam,ec,bezemConversie,toetsen,nieuweCursussen);
+    }
+
+
+
+
+    addCursus(code, naam, ec, bezemConversie, toetsen, nieuweCursussen ) {
+
+            // the user has entered a value within the textfield
+            const newCursus = new Cursus(code, naam, ec, bezemConversie, null, null, null, null, null, true, toetsen);
+            this.cursusService.addCursus(newCursus)
+            console.log(newCursus)
+
+
+
+
+
+
+    }
 
 }
 
