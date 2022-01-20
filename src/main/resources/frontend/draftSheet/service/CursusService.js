@@ -1,4 +1,4 @@
-import { store } from '/AppService';
+import { store } from './Appservice';
 import { addCursus as addCourse,
     deleteCursus as deleteCourse,
     updateCursus as updateCourse } from './CursusActions';

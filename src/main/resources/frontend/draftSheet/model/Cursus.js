@@ -4,6 +4,8 @@ export class Cursus {
 
     id;
 
+
+
     constructor(code, naam, aantalEc, bezemOfConversie, periode, coordinator, oudeCursus, opmerkingen, leerjaar, draft, toetsen) {
 
         this.id = uuidv4(); // used to generate a unieke identifier
@@ -19,4 +21,6 @@ export class Cursus {
         this.draft = draft;
         this.toetsen = toetsen;
     }
+
+
 }
