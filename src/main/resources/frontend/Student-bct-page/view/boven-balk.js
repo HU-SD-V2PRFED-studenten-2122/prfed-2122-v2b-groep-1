@@ -11,9 +11,9 @@ class BovenBalk extends LitElement {
     
             #boven-balk {
                 overflow: hidden;
-                background-color: white;
-                border: 6px solid white;
+                border: 6px solid none;
                 font-family: Avenir LT W01_85 Heavy1475544,Avenir,Arial,sans-serif;
+                height: 90px;
             }
             
             a {
@@ -23,7 +23,7 @@ class BovenBalk extends LitElement {
                 text-align: center;
                 color: black;
                 text-decoration: none;
-                border: 4px solid white;
+                border: 4px solid none;
                 -webkit-border-radius: 5px;
                 -moz-border-radius: 5px;
                 border-radius: 5px;
@@ -41,7 +41,15 @@ class BovenBalk extends LitElement {
             }
             
             #boven-balk a:hover {
-                border-bottom-color: #00a1e1;
+                transition-duration: 0.1s;
+            }
+            
+            #hu-logo:hover, #sheets-link:hover {
+                border-bottom: 4px solid #00a1e1;
+            }
+            
+            #log-uit:hover {
+                border-bottom: 4px solid #df2e2a;
             }
         `;
 
@@ -51,9 +59,9 @@ class BovenBalk extends LitElement {
                 <a id="hu-logo" href="/src/main/resources/frontend/index.html"><img height="60" width="180"
                                                                                     src="../fotos/hogeschool-utrecht-logo.png"
                                                                                     alt="hu-logo"></a>
-                <a id="sheets-link" href="/src/main/resources/frontend/2020-2021.html">B/C Sheets</a>
+                <a id="sheets-link" href="/src/main/resources/frontend/2021-2022.html">B/C Sheets</a>
                 <a id="sheets-link" href="/src/main/resources/frontend/draft.html">Draft</a>
-                <a id="log-uit" href="../../login.html">Log uit</a>
+                <a id="log-uit" class="uitloggen" href="../../login.html">Log uit</a>
             </div>
         `;
     }

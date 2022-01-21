@@ -1,43 +1,25 @@
 html {
-    background-image: linear-gradient(to right, #9cb3ff, white, #ff9c9c);
+    background-image: linear-gradient(to right, #ff9c9c, white, #9cb3ff);
 }
 
 body {
     font-family: "arial";
 }
 
+header {
+    padding-top: 0;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 2%;
+    font-size: x-large;
+}
+
 h1 {
     text-align: center;
     text-decoration: underline;
     font-weight: 800;
-    font-size: xxx-large;
-    padding: 10px;
-    margin-bottom: 50px;
-}
-
-table {
-    background-color: white;
-    border-collapse: collapse;
-    height: 480px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-th,td {
-    border: 1px solid black;
-    padding: 12px;
-    text-align: center;
-}
-
-th {
-    background-color: #919191;
-    color: white;
-    font-size: large;
+    padding-top: 0;
+    margin-top: 10px;
 }
 
 .popup {
@@ -86,30 +68,29 @@ th {
     transition-duration: 0.35s;
 }
 
-button.home {
-    position: absolute;
-    top: 5%;
-}
-
-button.terug,button.verder {
-    height: 480px;
-    width: 5%;
-    background-color: #dddddd;
-    border-radius: 0;
+button.terug, button.verder {
+    height: 10%;
+    width: 12%;
+    margin-top: 0.4%;
+    margin-bottom: auto;
+    background-color: white;
+    border-radius: 5px;
     border-color: black;
-    border-width: 1px;
+    border-width: 4px;
     font-size: xxx-large;
-    font-weight: bold;
+    font-weight: bolder;
     cursor: pointer;
 } .terug:hover,.verder:hover {
-    background-color: #919191;
-    transition-duration: 0.5s;
+      background-color: #dddddd;
+      transition-duration: 0.5s;
   }
 
 button.terug {
     float: left;
+    margin-left: 12%;
 }
 
 button.verder {
     float: right;
+    margin-right: 12%;
 }

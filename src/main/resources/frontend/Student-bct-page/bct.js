@@ -1,5 +1,2 @@
 import './view/boven-balk.js';
-
-function openPopup() {
-    modal.style.display = "block";
-}
+import './view/my-table';
