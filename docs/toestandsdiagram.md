@@ -2,7 +2,7 @@
 
 ## toestandsmodel
 
-![domeinmodel user story 1](/docs/fotos/toestandsdiagram.jpg)
+![domeinmodel user story 1](/docs/fotos/Activity%20DiagramCursus.jpg)
 
 ## omschrijving van toestanden
 
