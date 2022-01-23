@@ -1,16 +1,11 @@
-import {css, html, LitElement} from "lit";
+import { LitElement, html, css } from 'lit';
+import { connect } from 'pwa-helpers';
+import { store } from '../service/Appservice';
 
 
-class toetsenList extends LitElement {
-
-    constructor() {
-        super();
-
-    }
+export class toetsenList extends connect(store)(LitElement) {
 
     static styles = css`
-            
- 
             li {
                 border-radius: 5px;
                 border-style: groove;
@@ -23,25 +18,51 @@ class toetsenList extends LitElement {
             .close {
                margin-left: 20px;
             }
-            
-            
-        
      `;
 
+
+    static get properties() {
+        return {
+            toetsen: {
+                type: Array
+            },
+            cursusId: {
+                type: String
+            }
+        }
+    }
+
+    constructor() {
+        super();
+        this.toetsen = []
+        this.cursusId = ''
+    }
+
+    stateChanged(state) {
+        let cursussen;
+        cursussen = state.courseReducer.courses;
+        cursussen.map( (cursus) => {
+            if (cursus.id === this.cursusId) {
+                this.toetsen = cursus.toetsen
+            }
+        })
+    }
+
     render(){
-        return html`
-            <p>toetsen</p>
-            <ul id="toetsen-list">
-                <li>toets1<mwc-span @click="${this.removeLi}" class="close">x</mwc-span></li>
-                <li>toets2<mwc-span @click="${this.removeLi}" class="close">x</mwc-span></li>
-            </ul>
-        `;
+        if (this.toetsen != null) {
+            return html`
+                <p>toetsen</p>
+                <div>
+                    ${
+                            this.toetsen.map((toets) => {
+                                return html`<toets-item toetsId="${toets.id}" toetsNaam="${toets.naamToets}" cursusId="${this.cursusId}" }></toets-item>`
+                            })
+                    }
+                </div>
+            `;
+        }
     }
-
-    removeLi() {
-        console.log("a")
-    }
-
 }
+
 
 customElements.define('toetsen-list', toetsenList )
