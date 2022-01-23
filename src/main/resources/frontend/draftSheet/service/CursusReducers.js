@@ -1,20 +1,31 @@
-import { ADD_CURSUS, UPDATE_CURSUS, DELETE_CURSUS } from './CursusActions';
+import {
+    ADD_CURSUS,
+    ADD_NIEUWE_CURSUS,
+    ADD_TOETS_CURSUS,
+    DELETE_COURSE_TEST,
+    DELETE_CURSUS,
+    DELETE_NEW_CURSUS,
+    UPDATE_CURSUS
+} from './CursusActions';
 
-const initialState = {
-    cursussen: []
+let initialState = {
+    courses: []
 }
+
+
 
 export const CursusReducers = (state = initialState, action) => {
     switch (action.type) {
         case ADD_CURSUS:
             return {
                 ...state,
-                cursussen: [...state.cursussen, action.cursus]
+                courses: [...state.courses, action.cursus]
             };
+
         case UPDATE_CURSUS:
             return {
                 ...state,
-                cursussen: state.cursussen.map(
+                courses: state.courses.map(
                     (cursus) => {
                         if (cursus.id === action.cursusId) {
                             cursus.code = action.code;
@@ -36,8 +47,73 @@ export const CursusReducers = (state = initialState, action) => {
         case DELETE_CURSUS:
             return {
                 ...state,
-                cursussen: state.cursussen.filter(
+                courses: state.courses.filter(
                     (cursus) => cursus.id !== action.cursusId
+                )
+            };
+        case ADD_TOETS_CURSUS:
+            return {
+                ...state,
+                courses: state.courses.map(
+                    (cursus) => {
+                        if (cursus.id === action.cursusId) {
+                            let toetsen = []
+                            if (cursus.toetsen != null) {
+                                toetsen = cursus.toetsen;
+                            }
+                            toetsen.push(action.toets);
+                            cursus.toetsen = toetsen;
+                        }
+                        return cursus;
+                    }
+                )
+            };
+        case ADD_NIEUWE_CURSUS:
+            return {
+                ...state,
+                courses: state.courses.map(
+                    (cursus) => {
+                        if (cursus.id === action.cursusId) {
+                            let cursussen = []
+                            if (cursus.nieuweCursussen != null) {
+                                cursussen = cursus.nieuweCursussen;
+                            }
+                            cursussen.push(action.cursus);
+                            cursus.nieuweCursussen = cursussen;
+
+
+                        }
+                        return cursus;
+                    }
+                )
+            };
+        case DELETE_COURSE_TEST:
+            console.log(action)
+            return {
+                ...state,
+                courses: state.courses.map(
+                    (cursus) => {
+                        if (cursus.id === action.cursusId) {
+                            cursus.toetsen = cursus.toetsen.filter(
+                                (toets) => toets.id !== action.toets
+                            )
+                        }
+                        return cursus;
+                    }
+                )
+            };
+        case DELETE_NEW_CURSUS:
+            return {
+                ...state,
+                courses: state.courses.map(
+                    (cursus) => {
+                        if (cursus.id === action.cursusId) {
+                            cursus.nieuweCursussen = cursus.nieuweCursussen.filter(
+                                (newCursus) => newCursus.id !== action.newCursusId
+                            )
+                        }
+                        return cursus;
+                    }
                 )
             };
         default:

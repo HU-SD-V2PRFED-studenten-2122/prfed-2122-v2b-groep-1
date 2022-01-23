@@ -4,8 +4,8 @@ import { ToetsReducers } from './ToetsReducers.js';
 
 const rootReducer = combineReducers(
     {
-        cursusReducer: CursusReducers,
-        toetsReducers: ToetsReducers
+        courseReducer: CursusReducers,
+        toetsReducer: ToetsReducers
     }
 )
 export const store = createStore(
