@@ -1,4 +1,4 @@
-import { store } from '/AppService';
+import { store } from './Appservice';
 import { addToets as addTest,
     deleteToets as deleteTest,
     updateToets as updateTest } from './ToetsActions';
@@ -11,11 +11,12 @@ export class ToetsService {
     }
 
     updateToets(toets) {
-        store.dispatch(deleteTest(toets));
+        store.dispatch(updateTest(toets));
     }
 
     deleteToets(toetsId) {
-        store.dispatch(updateTest(toetsId));
+        store.dispatch(deleteTest(toetsId))
+
     }
 
 }

@@ -1,9 +1,9 @@
-import {css, html, LitElement} from "lit";
+import { LitElement, html, css } from 'lit';
 import { connect } from 'pwa-helpers';
 import { store } from '../service/Appservice';
-import {AddOudeCursus} from "./AddOudeCursus";
 
-class cursussenList extends connect(store) (LitElement) {
+
+export class nieuweToetsenLijst extends connect(store)(LitElement) {
 
     static styles = css`
             li {
@@ -18,63 +18,55 @@ class cursussenList extends connect(store) (LitElement) {
             .close {
                margin-left: 20px;
             }
-            
-            
-        
      `;
 
 
     static get properties() {
         return {
-            courses: {
+            toetsen: {
                 type: Array
             },
-            oldCursusId: {
+            cursusId: {
                 type: String
             }
         }
     }
 
     constructor() {
-        super();
-        this.courses = []
 
+        super();
+        this.toetsen = []
     }
 
     stateChanged(state) {
         var cursussen;
         cursussen = state.courseReducer.courses;
         cursussen.map( (cursus) => {
-
-            if (cursus.id === this.oldCursusId) {
-                this.courses = cursus.nieuweCursussen
+            if (cursus.id === this.cursusId) {
+                console.log(cursus.toetsen)
+                this.toetsen = cursus.toetsen
             }
         })
-
     }
 
     render(){
 
-        if (this.courses != null) {
+        if (this.toetsen != null) {
             return html`
-                <p>cursussen</p>
+                <p>toetsen1</p>
                 <div>
                     ${
-                this.courses.map((cursus) => { 
-                    return html`<cursus-item cursusNaam="${cursus.naamCursus}" oldCursusId="${this.oldCursusId}" newCursusId="${cursus.id}" }></cursus-item>`
+                this.toetsen.map((toets) => {
+                    return html`<nieuw-toets-item toetsId="${toets.id}" toetsNaam="${toets.naamToets}" cursusId="${this.cursusId}" }></nieuw-toets-item>`
                 })
             }
                 </div>
-        `;
+            `;
         }
-
-
-
-
     }
 
 
 
 }
 
-customElements.define('cursussen-list', cursussenList )
+customElements.define('nieuwe-toetsen-list', nieuweToetsenLijst  )

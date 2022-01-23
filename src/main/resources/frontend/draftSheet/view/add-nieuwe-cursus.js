@@ -1,12 +1,10 @@
 import {css, html, LitElement} from "lit";
+import {Cursus} from "../model/Cursus";
+import {CursusService} from "../service/CursusService";
+import {AddOudeCursus} from "./AddOudeCursus";
 
 
 class addNieuweCursus extends LitElement {
-
-    constructor() {
-        super();
-
-    }
 
     static styles = css`
        
@@ -34,11 +32,7 @@ class addNieuweCursus extends LitElement {
         .cursus-button {
             background-color: #7fbaf5;
             border: none;
-            width: 10px;
-            height: 10px;
             padding: 5px;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
             border-radius: 5px;
             font-size: 16px;
         }
@@ -49,13 +43,30 @@ class addNieuweCursus extends LitElement {
     
      `;
 
+    static get properties() {
+        return {
+
+            newCursusId: {
+                type: String
+            },
+            oldCursusId: {
+                type: String
+            }
+        }
+    }
+
+    constructor() {
+        super();
+        this.cursusService = new CursusService();
+
+    }
+
     render(){
         return html`
-
-
             <dialog id="nieuweCursusDialog">
                 <h2>Voer nieuwe Cursus in</h2>
-                <div id="oude-cursus">
+                
+                <form onsubmit="return false">
                     <label for="cursus-code"></label>
                     <input type="text" id="cursus-code" class="maakCursus" name="cursus-code" placeholder="Cursus Code">
                     <label for="cursus-naam"></label>
@@ -64,39 +75,38 @@ class addNieuweCursus extends LitElement {
                     <input type="number" class="maakCursus" step="0.5" id="ec-cursus" name="aantal-ec-voor-cursus" placeholder="EC-cursus">
                     <label for="cursus-coordinator"></label>
                     <input type="text" class="maakCursus" id="cursus-coordinator" name="cursus-coordinator" placeholder="cursus coördinator">
-
+                    <label for="bezem-conversie"></label>
+                    <select required id="bezem-conversie" class="maakCursus" name="bezem-of-conversie" >
+                        <option value="" disabled selected hidden>bezem/conversie</option>
+                        <option>bezem</option>
+                        <option>conversie</option>
+                    </select>
+                    
+                    
                     <p>blok</p>
                     <label for="blok-a">A</label>
-                    <input type="checkbox" id="blok-b" name="blok-a" value="A">
+                    <input type="checkbox" id="blok-a" name="blok" value="A">
                     <label for="blok-b">B</label>
-                    <input type="checkbox" id="blok-b" name="blok-b" value="B">
+                    <input type="checkbox" id="blok-b" name="blok" value="B">
                     <label for="blok-c">C</label>
-                    <input type="checkbox" id="blok-c" name="blok-c" value="B">
+                    <input type="checkbox" id="blok-c" name="blok" value="B">
                     <label for="blok-d">D</label>
-                    <input type="checkbox" id="blok-d" name="blok-d" value="A">
+                    <input type="checkbox" id="blok-d" name="blok" value="A">
                     <label for="blok-e">E</label>
-                    <input type="checkbox" id="blok-e" name="blok-e" value="A">
+                    <input type="checkbox" id="blok-e" name="blok" value="A">
+
+                    <button  type="submit" class="cursus-button" id="open-toets-scherm-button-n" @click="${this.clickHandler}">Add Toets</button>
+                </form>
                 
-                </div>
+                <nieuwe-toetsen-list cursusId="${this.newCursusId}"></nieuwe-toetsen-list>
+                <add-toets cursusId="${this.newCursusId}" id="add-toets-part"></add-toets>
                 
-                
-                <div>
-                    <toetsen-list></toetsen-list>
-                    <add-toets></add-toets>
-                </div>
-                
-                
-               
-                
-                <menu>
-                    <mwc-button class="cursus-button"  @click="${this.closedialog}" raised>cancel</mwc-button>
-                    <mwc-button class="cursus-button"  @click="${this.closedialog}" raised>add cursus</mwc-button>
-                </menu>
-                
+                <button class="cursus-button"  @click="${this.closedialog}" >cancel</button>
+                <button class="cursus-button"  @click="${this.closedialog}" >add</button>
+                    
                 
             </dialog>
-
-            <mwc-button class="cursus-button"  @click="${this.openDialog}" raised>voeg cursus toe</mwc-button>
+            <button class="cursus-button"  @click="${this.openDialog}" >voeg cursus toe</button>
             
 
             
@@ -110,7 +120,37 @@ class addNieuweCursus extends LitElement {
     }
 
     openDialog() {
+        this.shadowRoot.querySelector("#add-toets-part").setAttribute("hidden", true)
+        this.shadowRoot.querySelector("#open-toets-scherm-button-n").removeAttribute("hidden")
         this.shadowRoot.querySelector("#nieuweCursusDialog").showModal()
+    }
+
+    clickHandler() {
+        this.shadowRoot.querySelector("#open-toets-scherm-button-n").setAttribute("hidden", true)
+        this.shadowRoot.querySelector("#add-toets-part").removeAttribute("hidden")
+
+        const code = this.shadowRoot.querySelector('#cursus-code').value;
+        const naam = this.shadowRoot.querySelector('#cursus-naam').value;
+        const ec = this.shadowRoot.querySelector('#ec-cursus').value;
+        const bezemConversie = this.shadowRoot.querySelector('#bezem-conversie').value;
+        const coordinator = this.shadowRoot.querySelector('#cursus-coordinator').value;
+
+        let checkboxes = this.shadowRoot.querySelectorAll('[name="blok"]:checked');
+        var periodes = []
+        for (var i=0; i<checkboxes.length; i++) {
+            periodes.push(checkboxes[i].value);
+        }
+
+        this.addCursus(code,naam,ec,bezemConversie,periodes,coordinator);
+    }
+
+
+    addCursus(code, naam, ec, bezemConversie, periode, coordinator ) {
+        const newCursus = new Cursus(code, naam, ec, bezemConversie, periode, coordinator, null, null, null, true, null);
+        this.cursusService.addCursus(newCursus)
+        this.cursusService.addNieuweCursus(this.oldCursusId, newCursus)
+        this.newCursusId = newCursus.id
+
     }
 
 

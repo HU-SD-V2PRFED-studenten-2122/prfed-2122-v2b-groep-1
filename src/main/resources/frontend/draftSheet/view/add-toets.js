@@ -1,17 +1,27 @@
 import {css, html, LitElement} from "lit";
+import {CursusService} from "../service/CursusService";
+import {Toets} from "../model/Toets";
+import {ToetsService} from "../service/ToetsService";
 
 
-class addToets extends LitElement {
+export class addToets extends LitElement {
+
+    static get properties() {
+        return {
+
+            cursusId: {
+                type: String
+            }
+        }
+    }
 
     constructor() {
         super();
-
+        this.cursusService = new CursusService();
+        this.toetsService = new ToetsService();
     }
 
     static styles = css`
-    
-        
-        
         #add-toets {
             width: 90%;
             height: 200px;
@@ -38,61 +48,60 @@ class addToets extends LitElement {
             border-bottom: 2px solid #00a1e1;
         }
         
-        #add-team-button {
-           
-            margin-left: 80%;
+        .cursus-button {
             background-color: #7fbaf5;
             border: none;
-            width: 10px;
-            height: 10px;
             padding: 5px;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
             border-radius: 5px;
             font-size: 16px;
         }
         
-        #add-team-button:hover {
+        .cursus-button:hover {
             background-color: grey;
         }
-            
-            
-            
-    
      `;
 
     render(){
         return html`
             
-            
-            
-                    
             <div id="add-toets">
                 <h3>Voeg toets toe</h3>
-                <label for="toets-naam"></label>
-                <input type="text" class="maakCursus" id="toets-naam" name="toets-naam" placeholder="Naam Toets">
-                <label for=" "></label>
-                <input type="text"  class="maakCursus" id="cursus-naam" name="cursus-naam" placeholder="Naam Cursus">
-                <label for="ec-cursus"></label>
-                <input type="number" class="maakCursus" id="ec-cursus" name="aantal-ec-voor-cursus" placeholder="Aantal EC">
-                <mwc-button id="add-team-button">add toets</mwc-button>
+                <form>
+                    <label for="toets-naam"></label>
+                    <input type="text" class="maakCursus" id="toets-naam" name="toets-naam" placeholder="Naam Toets">
+                    <label for=" "></label>
+                    <input type="number"  class="maakCursus" id="weging-toets" name="weging-toets" placeholder="weging">
+                    <label for="ec-cursus"></label>
+                    <input type="number" class="maakCursus" step="0.5" id="ec-toets" name="aantal-ec-voor-toets" placeholder="Aantal EC">
+                </form>
+                <button class="cursus-button" id="add-toets-button" @click="${this.clickHandler}">add toets</button>
             </div>
+            
+            
+            
                 
             
         `;
     }
 
 
-    clickHandler(e) {
-        this.opendialog()
+    clickHandler() {
+        var naam = this.shadowRoot.querySelector('#toets-naam').value;
+        var weging = this.shadowRoot.querySelector('#weging-toets').value;
+        var ec = this.shadowRoot.querySelector('#ec-toets').value;
 
+        this.addToets(naam, weging, ec);
     }
 
-    opendialog() {
-        this.shadowRoot.querySelector("#cursusDialog").showModal()
+    addToets(naam, weging, ec) {
+        console.log(naam)
+        const newToets = new Toets(naam,weging,ec);
+        this.toetsService.addToets(newToets)
+        this.cursusService.addToetsCursus(this.cursusId, newToets)
+
+
+
     }
-
-
 
 }
 

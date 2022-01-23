@@ -32,6 +32,7 @@ export const ToetsReducers = (state = initialState, action) => {
                     (toets) => toets.id !== action.toetsId
                 )
             };
+
         default:
             return state;
     }
