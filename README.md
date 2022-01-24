@@ -25,6 +25,7 @@ Groepsproject van blok B 2021
 ## Scrum Board
 * [Iteratie 1](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/projects/1)
 * [Iteratie 2](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/projects/5)
+* [Iteratie 3](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/projects/6)
 
 
 
