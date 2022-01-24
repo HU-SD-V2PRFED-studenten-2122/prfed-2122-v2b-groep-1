@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit";
 
-export class MyTable extends LitElement {
+export class MyTable2122 extends LitElement {
     constructor() {
         super();
     }
@@ -585,4 +585,4 @@ export class MyTable extends LitElement {
     }
 }
 
-customElements.define('my-table', MyTable);
+customElements.define('my-table-2122', MyTable2122);
