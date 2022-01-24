@@ -1,6 +1,24 @@
 import {LitElement, html, css} from "lit";
+import {UserService} from "../service/UserService.js";
+import {User} from "../model/user";
 
 class NamePass extends LitElement {
+
+    static get properties(){
+        return {
+
+            userId: {
+                type: String
+            }
+        }
+    }
+
+
+    constructor() {
+        super();
+        this.userService = new UserService();
+    }
+
     render() {
         return html`
             <div class="hero" id="home">
@@ -8,19 +26,29 @@ class NamePass extends LitElement {
                 <button class="main__btn"> Home</button>
                 <div class="hero__container">
                     <label> Naam:</label>
-                    <input type="text" name="firstname" />
+                    <input id="userName" type="text" name="firstname" />
                     <br>
                     <label >Wachtwoord: </label>
-                    <input type="text" id="explicit-label-name" name="lastname" />
-                    <button class="main__btn"> Inloggen </button>
+                    <input id="userPass" type="text"  name="lastname" />
+                    <button class="main__btn" @click="${this.clickHandler}"> Inloggen </button>
                 </div>
             </div>
         `;
     }
 
-    constructor() {
-        super();
+    clickHandler() {
+        var naam = this.shadowRoot.querySelector("#userName").value;
+        var wachtwoord = this.shadowRoot.querySelector("#userPass").value;
+
+        this.addLoginUser(naam, wachtwoord);
     }
+
+    addLoginUser(naam, wachtwoord) {
+        console.log("addLoginUser " + naam);
+        const newUser = new User(naam, wachtwoord);
+        this.userService.addUser(newUser);
+    }
+
 
     static get styles() {
         return css
@@ -73,6 +101,8 @@ class NamePass extends LitElement {
                 
         `;
     }
+
+
 }
 
 customElements.define('name-pass', NamePass);

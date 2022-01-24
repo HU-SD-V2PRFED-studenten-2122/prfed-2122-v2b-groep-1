@@ -57,11 +57,16 @@ class ZoekVak extends LitElement{
     render() {
         return html `
 
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
             <div class="hero" id="home">
+               
+
                 <div class="hero__container">
 
-                    <label> Zoek vak op naam:</label>
+                    <label>Zoek vak op naam:</label>
                     <input type="text" id="myInput" @keyup="${this.showSearchResults}">
+<!--                    <img src="/src/main/resources/fotos/searchIcon.png" alt="homeIcone" height="35" width="35">-->
+                   
 
                     <ul id="myUL" hidden>
                         <li><a href="#" <button @click="${this.showDiv1}"></button>Inleiding strategisch management </a></li>
@@ -98,7 +103,7 @@ class ZoekVak extends LitElement{
                                 </td>
                                 <td>50 <br> 30 <br> 20</td>
                                 <td>5 <br> 3 <br> 2</td>
-                                <td>B>C</td>
+                                <td>B.C</td>
                                 <td>meindert.scholma@hu.nl</td>
                                 
                             </tr>
@@ -285,6 +290,12 @@ class ZoekVak extends LitElement{
             background: linear-gradient(to right, #f5d7d7, #c5e1f3);
             padding: 10px 0;
         }
+        .hero__container img{
+            position: absolute;
+            left: 317px;
+            top: 410px;
+            color: gray;
+        }
         .hero__container {
             display: flex;
             flex-direction: column;
@@ -343,8 +354,6 @@ class ZoekVak extends LitElement{
         .newVakData tr:nth-child(even) {
           background-color: #dddddd;
         }
-       
-        
         .main__btn:hover {
           background: linear-gradient(to right, #c5e1f3, #f5d7d7);
         }
@@ -357,8 +366,7 @@ class ZoekVak extends LitElement{
             color: black;
             cursor: pointer;
             position: relative;
-            transition: all 0.4s;
-        
+            transition: all 0.4s;        
         }
         `;
     }
