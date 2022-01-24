@@ -20,6 +20,4 @@ export class UserService {
     updateUser(userId, naam, wachtwoord) {
         store.dispatch(updateUSER(userId, naam, wachtwoord));
     }
-
-
 }
