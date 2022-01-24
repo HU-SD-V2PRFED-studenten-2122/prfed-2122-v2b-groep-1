@@ -34,6 +34,7 @@ class ZoekVak extends LitElement{
             }
         }
     }
+    
 
     showDiv1() {this.shadowRoot.getElementById("divVak1").removeAttribute("hidden");}
     closeDiv1(qualifiedName, value) {this.shadowRoot.getElementById("divVak1").setAttribute("hidden", value);}

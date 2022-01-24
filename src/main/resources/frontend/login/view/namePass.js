@@ -13,7 +13,6 @@ class NamePass extends LitElement {
         }
     }
 
-
     constructor() {
         super();
         this.userService = new UserService();
@@ -49,7 +48,6 @@ class NamePass extends LitElement {
         this.userService.addUser(newUser);
     }
 
-
     static get styles() {
         return css
         `
@@ -60,8 +58,7 @@ class NamePass extends LitElement {
             font-family: 'Kumb Sans', sans-serif;
             scroll-behavior: smooth;
         
-        }
-        
+        }       
         .hero {
             background: #e9e2e2;
             background: linear-gradient(to right, #f5d7d7, #c5e1f3);
@@ -79,8 +76,7 @@ class NamePass extends LitElement {
         
         .hero__container input{
             font-size: 1.2rem;
-        }
-        
+        }       
         .main__btn {
             margin-top: 1rem;
             font-size: 1rem;
@@ -91,18 +87,14 @@ class NamePass extends LitElement {
             cursor: pointer;
             position: relative;
             transition: all 0.4s;
-            outline: none;
-           
-        }
-        
+            outline: none;          
+        }        
         .main__btn:hover {
           background: linear-gradient(to right, #c5e1f3, #f5d7d7);
         }
                 
         `;
     }
-
-
 }
 
 customElements.define('name-pass', NamePass);
