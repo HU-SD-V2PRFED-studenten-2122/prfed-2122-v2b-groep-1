@@ -19,8 +19,6 @@ Groepsproject van blok B 2021
 * [De Opdracht](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/wiki/De-Opdracht)
 * [Organisatorische Context](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/wiki/Organisatorische-Context)
 
-### BPMN Diagram
-![image](https://user-images.githubusercontent.com/79028646/150790563-793bd7d5-a4b6-475d-9aba-d29799d053f9.png)
 
 ## Scrum Board
 * [Iteratie 1](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/projects/1)
