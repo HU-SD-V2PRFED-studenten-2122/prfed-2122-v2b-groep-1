@@ -68,6 +68,20 @@ export const CursusReducers = (state = initialState, action) => {
                     }
                 )
             };
+        case DELETE_COURSE_TEST:
+            return {
+                ...state,
+                courses: state.courses.map(
+                    (cursus) => {
+                        if (cursus.id === action.cursusId) {
+                            cursus.toetsen = cursus.toetsen.filter(
+                                (toets) => toets.id !== action.toets
+                            )
+                        }
+                        return cursus;
+                    }
+                )
+            };
         case ADD_NIEUWE_CURSUS:
             return {
                 ...state,
@@ -82,21 +96,6 @@ export const CursusReducers = (state = initialState, action) => {
                             cursus.nieuweCursussen = cursussen;
 
 
-                        }
-                        return cursus;
-                    }
-                )
-            };
-        case DELETE_COURSE_TEST:
-            console.log(action)
-            return {
-                ...state,
-                courses: state.courses.map(
-                    (cursus) => {
-                        if (cursus.id === action.cursusId) {
-                            cursus.toetsen = cursus.toetsen.filter(
-                                (toets) => toets.id !== action.toets
-                            )
                         }
                         return cursus;
                     }
