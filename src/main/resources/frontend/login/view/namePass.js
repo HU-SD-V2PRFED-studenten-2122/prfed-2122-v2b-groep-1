@@ -69,9 +69,7 @@ class NamePass extends LitElement {
         
         }       
         .hero {
-            background: #e9e2e2;
-            background: linear-gradient(to right, #f5d7d7, #c5e1f3);
-            padding: 100px 50px 1000px;
+            padding: 100px 50px 100px;
         }
         .hero__container {
             display: flex;

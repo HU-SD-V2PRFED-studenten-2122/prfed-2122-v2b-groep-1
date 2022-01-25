@@ -64,8 +64,8 @@ class ZoekVak extends LitElement{
 
                 <div class="hero__container">
 
-                    <label>Zoek vak op naam:</label>
-                    <input type="text" id="myInput" @keyup="${this.showSearchResults}">
+                    <label tabindex="20">Zoek vak op naam:</label>
+                    <input  type="text" id="myInput" @keyup="${this.showSearchResults}">
 <!--                    <img src="/src/main/resources/fotos/searchIcon.png" alt="homeIcone" height="35" width="35">-->
                     
                     <ul id="myUL" hidden>
