@@ -34,7 +34,7 @@ class ZoekVak extends LitElement{
             }
         }
     }
-    
+
 
     showDiv1() {this.shadowRoot.getElementById("divVak1").removeAttribute("hidden");}
     closeDiv1(qualifiedName, value) {this.shadowRoot.getElementById("divVak1").setAttribute("hidden", value);}
@@ -67,8 +67,7 @@ class ZoekVak extends LitElement{
                     <label>Zoek vak op naam:</label>
                     <input type="text" id="myInput" @keyup="${this.showSearchResults}">
 <!--                    <img src="/src/main/resources/fotos/searchIcon.png" alt="homeIcone" height="35" width="35">-->
-                   
-
+                    
                     <ul id="myUL" hidden>
                         <li><a href="#" <button @click="${this.showDiv1}"></button>Inleiding strategisch management </a></li>
                         <li><a href="#" <button @click="${this.showDiv2}"></button>Leiderschapsvaardigheden</a></li>
@@ -79,195 +78,192 @@ class ZoekVak extends LitElement{
                     </ul><br><br>
 
                     <div  id="divVak1" hidden >
-                        <h1>Nieuwe Cursus Data</h1>
-
                         <table class="newVakData">
+                            <h1 tabindex="0">Nieuwe Cursus Data</h1>
                             <tr>
-                                <th>Bezem/Conversie</th>
-                                <th>Nieuwe code</th>
-                                <th>Naam</th>
-                                <th>EC-cursus</th>
-                                <th>Toets en Toetsvorm</th>
-                                <th>Weging</th>
-                                <th>EC-toets</th>
-                                <th>Periode</th>
-                                <th>Programmaleidr</th>
+                                <th tabindex="1">Bezem/Conversie</th>
+                                <th tabindex="3">Niewe Code</th>
+                                <th tabindex="5">Naam</th>
+                                <th tabindex="7">EC-cursus</th>
+                                <th tabindex="9">Toets en Toetsvorm</th>
+                                <th tabindex="11">Weging</th>
+                                <th tabindex="13">EC-toets</th>
+                                <th tabindex="15">Periode</th>
+                                <th tabindex="17">Programmaleider</th>
                             </tr>
                             <tr>
-                                <td>Bezem</td>
-                                <td>MBBU-H-ISTRAM-19</td>
-                                <td>Inleiding strategisch management</td>
-                                <td>10</td>
-                                <td>TOETS1-Tentamen ISTRAM-COMPUTER <br>
+                                <td tabindex="2">Bezem</td>
+                                <td tabindex="4">MBBU-H-ISTRAM-19</td>
+                                <td tabindex="6">Inleiding strategisch management</td>
+                                <td tabindex="8">10</td>
+                                <td tabindex="10">TOETS1-Tentamen ISTRAM-COMPUTER <br>
                                     TOETS2-Essay ISTRAM-VERSLAG <br>
-                                    TOETS3-Presentatie advies ISTRAM-PRESENTATIE
-                                </td>
-                                <td>50 <br> 30 <br> 20</td>
-                                <td>5 <br> 3 <br> 2</td>
-                                <td>B.C</td>
-                                <td>meindert.scholma@hu.nl</td>
+                                    TOETS3-Presentatie advies ISTRAM-PRESENTATIE</td>
+                                <td tabindex="12">50 <br> 30 <br> 20</td>
+                                <td tabindex="14">5 <br> 3 <br> 2</td>
+                                <td tabindex="16">B.C</td>
+                                <td tabindex="18">meindert.scholma@hu.nl</td>
                                 
                             </tr>
                         </table>
-                        <button class="main__btn" @click="${this.closeDiv1}">Close</button>
+                        <button tabindex="19" class="main__btn" @click="${this.closeDiv1}">Close</button>
                     </div>
 
 <!--vak 2 Leiderschap..-->
 
                     <div  id="divVak2" hidden >
-                        <h1>Nieuwe Cursus Data</h1>
-
                         <table class="newVakData">
+                            <h1 tabindex="0">Nieuwe Cursus Data</h1>
                             <tr>
-                                <th>Bezem/Conversie</th>
-                                <th>Nieuwe code</th>
-                                <th>Naam</th>
-                                <th>EC-cursus</th>
-                                <th>Toets en Toetsvorm</th>
-                                <th>Weging</th>
-                                <th>EC-toets</th>
-                                <th>Periode</th>
-                                <th>Programmaleidr</th>
+                                <th tabindex="1">Bezem/Conversie</th>
+                                <th tabindex="3">Niewe Code</th>
+                                <th tabindex="5">Naam</th>
+                                <th tabindex="7">EC-cursus</th>
+                                <th tabindex="9">Toets en Toetsvorm</th>
+                                <th tabindex="11">Weging</th>
+                                <th tabindex="13">EC-toets</th>
+                                <th tabindex="15">Periode</th>
+                                <th tabindex="17">Programmaleider</th>
                             </tr>
                             <td>
-                                <td>Bezem</td>
-                                <td>MBBU_H-LEIVA-18</td>
-                                <td>Leiderschapvaardigheden</td>
-                                <td>10</td>
-                                <td>Gehele cursus</td>
-                                <td>100</td>
-                                <td>10</td>
-                                <td>C.D</td>
-                                <td>pieter.schilder@hu.nl</td>
+                                <td tabindex="2">Bezem</td>
+                                <td tabindex="4">MBBU_H-LEIVA-18</td>
+                                <td tabindex="6">Leiderschapvaardigheden</td>
+                                <td tabindex="8">10</td>
+                                <td tabindex="10">Gehele cursus</td>
+                                <td tabindex="12">100</td>
+                                <td tabindex="14">10</td>
+                                <td tabindex="16">C.D</td>
+                                <td tabindex="18">pieter.schilder@hu.nl</td>
 
                         </table>
-                        <button class="main__btn"  @click="${this.closeDiv2}">Close</button>
+                        <button tabindex="19" class="main__btn"  @click="${this.closeDiv2}">Close</button>
                     </div>
                     
 <!--vak 3 praktijk-->
                     <div  id="divVak3" hidden >
-                        <h1>Nieuwe Cursus Data</h1>
-
                         <table class="newVakData">
+                            <h1 tabindex="0">Nieuwe Cursus Data</h1>
                             <tr>
-                                <th>Bezem/Conversie</th>
-                                <th>Nieuwe code</th>
-                                <th>Naam</th>
-                                <th>EC-cursus</th>
-                                <th>Toets en Toetsvorm</th>
-                                <th>Weging</th>
-                                <th>EC-toets</th>
-                                <th>Periode</th>
-                                <th>Programmaleidr</th>
+                                <th tabindex="1">Bezem/Conversie</th>
+                                <th tabindex="3">Niewe Code</th>
+                                <th tabindex="5">Naam</th>
+                                <th tabindex="7">EC-cursus</th>
+                                <th tabindex="9">Toets en Toetsvorm</th>
+                                <th tabindex="11">Weging</th>
+                                <th tabindex="13">EC-toets</th>
+                                <th tabindex="15">Periode</th>
+                                <th tabindex="17">Programmaleider</th>
                             </tr>
                             <tr>
-                                <td>Bezem</td>
-                                <td>MBBU-H-PRAKBD-18</td>
-                                <td>Praktijk Buisness Developer</td>
-                                <td>5</td>
-                                <td>Gehele cursus</td>
-                                <td>100</td>
-                                <td>5</td>
-                                <td>A.B</td>
-                                <td>robvanbemmelen@hu.nl</td>
+                                <td tabindex="2">Bezem</td>
+                                <td tabindex="4">MBBU-H-PRAKBD-18</td>
+                                <td tabindex="6">Praktijk Buisness Developer</td>
+                                <td tabindex="8">5</td>
+                                <td tabindex="10">Gehele cursus</td>
+                                <td tabindex="12">100</td>
+                                <td tabindex="14">5</td>
+                                <td tabindex="16">A.B</td>
+                                <td tabindex="18">robvanbemmelen@hu.nl</td>
                         </table>
-                        <button class="main__btn"  @click="${this.closeDiv3}">Close</button>
+                        <button tabindex="19" class="main__btn"  @click="${this.closeDiv3}">Close</button>
                     </div>
 <!--vak 4 Resource                    -->
 
                     <div  id="divVak4" hidden >
-                        <h1>Nieuwe Cursus Data</h1>
-
                         <table class="newVakData">
+                            <h1 tabindex="0">Nieuwe Cursus Data</h1>
                             <tr>
-                                <th>Bezem/Conversie</th>
-                                <th>Nieuwe code</th>
-                                <th>Naam</th>
-                                <th>EC-cursus</th>
-                                <th>Toets en Toetsvorm</th>
-                                <th>Weging</th>
-                                <th>EC-toets</th>
-                                <th>Periode</th>
-                                <th>Programmaleidr</th>
+                                <th tabindex="1">Bezem/Conversie</th>
+                                <th tabindex="3">Niewe Code</th>
+                                <th tabindex="5">Naam</th>
+                                <th tabindex="7">EC-cursus</th>
+                                <th tabindex="9">Toets en Toetsvorm</th>
+                                <th tabindex="11">Weging</th>
+                                <th tabindex="13">EC-toets</th>
+                                <th tabindex="15">Periode</th>
+                                <th tabindex="17">Programmaleider</th>
                             </tr>
                             <tr>
-                                <td>Bezem</td>
-                                <td>MBBU-H-RESM2-18</td>
-                                <td>Resource Mangement 2</td>
-                                <td>5</td>
-                                <td>Gehele cursus</td>
-                                <td>100</td>
-                                <td>5</td>
-                                <td>D.F</td>
-                                <td>suzanne.boel@hu.nl</td>
+                                <td tabindex="2">Bezem</td>
+                                <td tabindex="4">MBBU-H-RESM2-18</td>
+                                <td tabindex="6">Resource Mangement 2</td>
+                                <td tabindex="8">5</td>
+                                <td tabindex="10">Gehele cursus</td>
+                                <td tabindex="12">100</td>
+                                <td tabindex="14">5</td>
+                                <td tabindex="16">D.F</td>
+                                <td tabindex="18">suzanne.boel@hu.nl</td>
                         </table>
-                        <button class="main__btn"  @click="${this.closeDiv4}">Close</button>
+                        <button tabindex="19" class="main__btn"  @click="${this.closeDiv4}">Close</button>
                     </div>
                     
 <!-- vak 5 Praktijk 1                   -->
 
 
                     <div  id="divVak5" hidden >
-                        <h1>Nieuwe Cursus Data</h1>
 
                         <table class="newVakData">
+                            <h1 tabindex="0">Nieuwe Cursus Data</h1>
+
                             <tr>
-                                <th>Bezem/Conversie</th>
-                                <th>Nieuwe code</th>
-                                <th>Naam</th>
-                                <th>EC-cursus</th>
-                                <th>Toets en Toetsvorm</th>
-                                <th>Weging</th>
-                                <th>EC-toets</th>
-                                <th>Periode</th>
-                                <th>Programmaleidr</th>
+                                <th tabindex="1">Bezem/Conversie</th>
+                                <th tabindex="3">Niewe Code</th>
+                                <th tabindex="5">Naam</th>
+                                <th tabindex="7">EC-cursus</th>
+                                <th tabindex="9">Toets en Toetsvorm</th>
+                                <th tabindex="11">Weging</th>
+                                <th tabindex="13">EC-toets</th>
+                                <th tabindex="15">Periode</th>
+                                <th tabindex="17">Programmaleider</th>
                             </tr>
                             <tr>
-                                <td>Conversie</td>
-                                <td>MBBU-H-PRAK1-19</td>
-                                <td>Praktijk 1</td>
-                                <td>10</td>
-                                <td>TOETS1-Praktij-PRAKTIJK <br> 
+                                <td tabindex="2">Conversie</td>
+                                <td tabindex="4">MBBU-H-PRAK1-19</td>
+                                <td tabindex="6">Praktijk 1</td>
+                                <td tabindex="8">10</td>
+                                <td tabindex="10">TOETS1-Praktij-PRAKTIJK <br> 
                                 TOETS2-Portfolio-VERSLAG <br>
                                     TOETS3-Verslag-VERSLAG</td>
-                                <td>50 <br> 50 <br> 0</td>
-                                <td>5 <br> 5 <br> 0</td>
-                                <td>A.B.C.D.E <br> A.B.C.D.E <br>A.B.C.D.E</td>
-                                <td>leonie.stolk@hu.nl</td>
+                                <td tabindex="12">50 <br> 50 <br> 0</td>
+                                <td tabindex="14">5 <br> 5 <br> 0</td>
+                                <td tabindex="16">A.B.C.D.E <br> A.B.C.D.E <br>A.B.C.D.E</td>
+                                <td tabindex="18">leonie.stolk@hu.nl</td>
                         </table>
-                        <button class="main__btn"  @click="${this.closeDiv5}">Close</button>
+                        <button tabindex="19" class="main__btn"  @click="${this.closeDiv5}">Close</button>
                     </div>
                     
                     
 <!--vak 6 Project                    -->
 
                     <div  id="divVak6" hidden >
-                        <h1>Nieuwe Cursus Data</h1>
 
                         <table class="newVakData">
+                            <h1 tabindex="0">Nieuwe Cursus Data</h1>
+
                             <tr>
-                                <th>Bezem/Conversie</th>
-                                <th>Nieuwe code</th>
-                                <th>Naam</th>
-                                <th>EC-cursus</th>
-                                <th>Toets en Toetsvorm</th>
-                                <th>Weging</th>
-                                <th>EC-toets</th>
-                                <th>Periode</th>
-                                <th>Programmaleidr</th>
+                                <th tabindex="1">Bezem/Conversie</th>
+                                <th tabindex="3">Niewe Code</th>
+                                <th tabindex="5">Naam</th>
+                                <th tabindex="7">EC-cursus</th>
+                                <th tabindex="9">Toets en Toetsvorm</th>
+                                <th tabindex="11">Weging</th>
+                                <th tabindex="13">EC-toets</th>
+                                <th tabindex="15">Periode</th>
+                                <th tabindex="17">Programmaleider</th>
                             </tr>
                             <tr>
-                                <td>Conversie</td>
-                                <td>MB-PROJ-16</td>
-                                <td>Project</td>
-                                <td>10</td>
-                                <td>TOETS1 - assessment - ASSESSMENT</td>
-                                <td>100</td>
-                                <td>10</td>
-                                <td>B.C</td>
-                                <td>jasper.vandenbrink@hu.nl</td>
+                                <td tabindex="2">Conversie</td>
+                                <td tabindex="4">MB-PROJ-16</td>
+                                <td tabindex="6">Project</td>
+                                <td tabindex="8">10</td>
+                                <td tabindex="10">TOETS1 - assessment - ASSESSMENT</td>
+                                <td tabindex="12">100</td>
+                                <td tabindex="14">10</td>
+                                <td tabindex="16">B.C</td>
+                                <td tabindex="18">jasper.vandenbrink@hu.nl</td>
                         </table>
-                        <button class="main__btn"  @click="${this.closeDiv6}">Close</button>
+                        <button tabindex="19" class="main__btn"  @click="${this.closeDiv6}">Close</button>
                     </div>
                    
 
