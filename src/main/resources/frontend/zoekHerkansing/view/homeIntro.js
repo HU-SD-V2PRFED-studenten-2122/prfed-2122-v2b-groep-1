@@ -5,7 +5,6 @@ class HomePage extends LitElement {
     render() {
         return html`
             <div class="hero" id="home">
-                <button class="main__btn"> Login </button><br>
 
                 <div class="hero__container">
                     <h1 class="hero__heading">Kop van uitleg </h1> <br>

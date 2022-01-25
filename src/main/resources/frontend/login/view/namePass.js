@@ -22,30 +22,39 @@ class NamePass extends LitElement {
         return html`
             <div class="hero" id="home">
                 <img src="/src/main/resources/fotos/homeIcon.png" alt="homeIcone" height="70" width="70"><br>
-                <button tabindex="1" class="main__btn"> Home</button>
+                <button class="main__btn" @click="${this.clickHandlerToHome}"> Home </button>
+
                 <div class="hero__container">
                     <label tabindex="2"> Naam:</label>
                     <input tabindex="3" id="userName" type="text" name="firstname" />
                     <br>
                     <label tabindex="4" >Wachtwoord: </label>
-                    <input tabindex="5" id="userPass" type="text"  name="lastname" />
-                    <button tabindex="6" class="main__btn" @click="${this.clickHandler}"> Inloggen </button>
+                    <input tabindex="5" id="userPass" type="password"  name="lastname" />
+                    <button tabindex="6" class="main__btn" @click="${this.clickHandlerToDraft}"> Inloggen </button>
+
                 </div>
             </div>
         `;
     }
 
-    clickHandler() {
+    clickHandlerToDraft() {
         var naam = this.shadowRoot.querySelector("#userName").value;
         var wachtwoord = this.shadowRoot.querySelector("#userPass").value;
 
         this.addLoginUser(naam, wachtwoord);
     }
 
+    clickHandlerToHome() {
+        console.log("goToHomeHandler");
+        location.href= "/src/main/resources/frontend/index.html";
+    }
+
     addLoginUser(naam, wachtwoord) {
         console.log("addLoginUser " + naam);
         const newUser = new User(naam, wachtwoord);
         this.userService.addUser(newUser);
+        console.log(newUser)
+        location.href = "/src/main/resources/frontend/draft.html";
     }
 
     static get styles() {
