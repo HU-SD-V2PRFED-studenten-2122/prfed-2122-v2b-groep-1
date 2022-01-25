@@ -88,7 +88,6 @@ export const CursusReducers = (state = initialState, action) => {
                 )
             };
         case DELETE_COURSE_TEST:
-            console.log(action)
             return {
                 ...state,
                 courses: state.courses.map(
