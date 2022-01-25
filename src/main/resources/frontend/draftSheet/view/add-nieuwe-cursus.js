@@ -58,7 +58,7 @@ class addNieuweCursus extends LitElement {
     constructor() {
         super();
         this.cursusService = new CursusService();
-        this.newCursusId = null;
+        this.newCursusId = null
 
     }
 
