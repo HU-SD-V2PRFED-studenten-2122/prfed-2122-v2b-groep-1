@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { connect } from 'pwa-helpers';
-import { store } from '../service/Appservice';
+import { store } from '../../service/Appservice';
 
 
 export class nieuweToetsenLijst extends connect(store)(LitElement) {

@@ -1,6 +1,6 @@
 import {css, html, LitElement} from "lit";
-import {Cursus} from "../model/Cursus";
-import {CursusService} from "../service/CursusService";
+import {Cursus} from "../../model/Cursus";
+import {CursusService} from "../../service/CursusService";
 
 
 

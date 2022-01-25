@@ -6,3 +6,7 @@
     font-size: 12px;
 }
 
+html {
+    background: linear-gradient(to right, #f5d7d7, #c5e1f3);
+}
+

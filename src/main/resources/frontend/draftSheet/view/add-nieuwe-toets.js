@@ -1,7 +1,7 @@
 import {css, html, LitElement} from "lit";
-import {CursusService} from "../service/CursusService";
-import {Toets} from "../model/Toets";
-import {ToetsService} from "../service/ToetsService";
+import {CursusService} from "../../service/CursusService";
+import {Toets} from "../../model/Toets";
+import {ToetsService} from "../../service/ToetsService";
 
 
 export class addNieuweToetsToets extends LitElement {

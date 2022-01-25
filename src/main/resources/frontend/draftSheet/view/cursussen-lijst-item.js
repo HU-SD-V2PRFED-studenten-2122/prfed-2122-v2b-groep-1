@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit";
-import {CursusService} from "../service/CursusService";
+import {CursusService} from "../../service/CursusService";
 
 
 export class CursussenLijstItem extends LitElement {

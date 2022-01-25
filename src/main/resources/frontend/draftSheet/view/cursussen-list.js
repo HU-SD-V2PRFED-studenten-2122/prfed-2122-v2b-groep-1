@@ -1,6 +1,6 @@
 import {css, html, LitElement} from "lit";
 import { connect } from 'pwa-helpers';
-import { store } from '../service/Appservice';
+import { store } from '../../service/Appservice';
 import {AddOudeCursus} from "./AddOudeCursus";
 
 class cursussenList extends connect(store) (LitElement) {

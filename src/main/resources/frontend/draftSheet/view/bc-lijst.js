@@ -1,8 +1,8 @@
 import { LitElement, html, css } from "lit";
-import {bcLijstService} from "../service/bcLijstService";
+import {bcLijstService} from "../../service/bcLijstService";
 import {connect} from "pwa-helpers";
-import {store} from "../service/Appservice.js";
-import {Cursus} from "../model/Cursus";
+import {store} from "../../service/Appservice.js";
+import {Cursus} from "../../model/Cursus";
 
 export class BcLijst extends connect(store)(LitElement) {
 

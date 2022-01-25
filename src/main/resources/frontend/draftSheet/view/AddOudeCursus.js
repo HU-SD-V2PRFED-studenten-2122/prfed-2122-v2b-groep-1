@@ -1,8 +1,8 @@
 import {css, html, LitElement} from "lit";
-import {Cursus} from "../model/Cursus";
-import {CursusService} from "../service/CursusService";
+import {Cursus} from "../../model/Cursus";
+import {CursusService} from "../../service/CursusService";
 import {addNieuweCursus} from "./add-nieuwe-cursus.js";
-import {bcLijstService} from "../service/bcLijstService"
+import {bcLijstService} from "../../service/bcLijstService"
 
 
 export class AddOudeCursus extends LitElement {
@@ -56,6 +56,10 @@ export class AddOudeCursus extends LitElement {
             display: inline-block;
          }
          
+         #voeg-cursus-toe {
+            margin-left: 20px
+         }
+         
          
         
      `;
@@ -80,7 +84,7 @@ export class AddOudeCursus extends LitElement {
     render(){
         return html`
             
-            <button class="cursus-button"  @click="${this.openDialog}"><span class="visually-hidden">voeg cursus toe dialoog</span>voeg cursus toe</button>
+            <button class="cursus-button"  id="voeg-cursus-toe" @click="${this.openDialog}"><span class="visually-hidden">voeg cursus toe dialoog</span>voeg cursus toe</button>
             
             <dialog id="oudeCursusDialog">
                 <h2>Voer oude Cursus in</h2>
