@@ -1,23 +1,92 @@
 import { LitElement, html, css } from "lit";
 
-export class MyTable2122 extends LitElement {
+export class Sheet2122 extends LitElement {
     constructor() {
         super();
     }
 
+    zoekFunctie() {
+        let input, filter, sheet, tr, code, i, textValue;
+
+        input = this.shadowRoot.getElementById('cursuscode');
+        filter = input.value.toUpperCase();
+        sheet = this.shadowRoot.getElementById('sheet');
+        tr = sheet.getElementsByClassName('rij');
+
+        for (i = 0; i < tr.length; i++) {
+            code = tr[i].getElementsByTagName('code')[0];
+            textValue = code.textContent || code.innerText;
+
+            if (textValue.toUpperCase().indexOf(filter) > -1 && input.value !== '' && input.value !== '-') {
+                if (i % 2 === 0) {
+                    tr[i].style.backgroundColor = '#f5d7d7';
+                } else {
+                    tr[i].style.backgroundColor = '#c5e1f3';
+                }
+            }
+            else if (input.value === '' || input.value === ' ' || input.value === '-') {
+                if (i % 2 === 0) {
+                    tr[i].style.backgroundColor = '#dddddd';
+                } else {
+                    tr[i].style.backgroundColor = 'white';
+                }
+            }
+            else {
+                tr[i].style.backgroundColor = 'white';
+            }
+        }
+    }
+
     static styles = css`
+        #cursus-zoeker {
+            margin-bottom: 4px;
+        }
+    
+        label {
+            font-weight: bold;
+            padding-right: 2px;
+            margin-left: 5.2%;
+        } label:hover {
+            cursor: text;
+        }
+        
+        input {
+            height: 18px;
+            width: 175px;
+            margin-right: 1px;
+            font-style: italic;
+        } input:hover {
+            border-radius: 3px;
+            border-color: #a1a1a1;
+        }
+        
+        button {
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+        } button:hover {
+            cursor: pointer;
+            border-radius: 1px;
+            background-color: #dddddd;
+            transition-duration: 0.1s;
+        }
+    
         table {
-            background-color: white;
             border-collapse: collapse;
             width: 100%;
             margin-left: auto;
             margin-right: auto;
         }
-
-        tr:nth-child(even) {
+        
+        #sheet {
+            background-color: white;
+        }
+        
+        table tr.rij:nth-child(even) {
             background-color: #dddddd;
         }
-
+        
         th,td {
             border: 1px solid black;
             padding: 0;
@@ -65,13 +134,19 @@ export class MyTable2122 extends LitElement {
         }
 
         .second-column {
-            width: 20%;
+            width: 20.05%;
         }
     `;
 
     render() {
         return html`
-            <table>
+            <div id="cursus-zoeker">
+                <label for="cursuscode">Cursuscode:</label>
+                <input id="cursuscode" type="text" maxlength="20" placeholder="Vul hier uw cursuscode in.">
+                <button id="zoekKnop" @click="${this.zoekFunctie}">Zoeken</button>
+            </div>
+
+            <table id="sheet">
                 <tr>
                     <th>Oude Code</th>
                     <th>Naam</th>
@@ -90,8 +165,8 @@ export class MyTable2122 extends LitElement {
                     <th>Programmaleider</th>
                     <th>Opmerkingen</th>
                 </tr>
-                <tr>
-                    <td>MBBU-H-PROOA-19</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-PROOA-19</code></td>
                     <td>Project organisatieadvisering</td>
                     <td>15</td>
                     <td colspan="3"><table class="inside-table-high">
@@ -114,11 +189,11 @@ export class MyTable2122 extends LitElement {
                     <td>hans.vanderkolk@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-PRAK2-19</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-PRAK2-19</code></td>
                     <td>Praktijk 2</td>
                     <td>30</td>
-                    <td colspan="3"><table class="inside-table">
+                    <td colspan="3"><table class="inside-table-low">
                         <td class="first-column">Portfolio - PRAKTIJK</td><td class="second-column">50</td><td>15</td>
                         <tr><td>Assessment- ASSESSMENT</td><td>50</td><td>15</td></tr>
                     </table></td>
@@ -133,8 +208,8 @@ export class MyTable2122 extends LitElement {
                     <td>pieter.schilder@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-ISTRAM-19</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-ISTRAM-19</code></td>
                     <td>Inleiding strategisch management</td>
                     <td>10</td>
                     <td colspan="3"><table class="inside-table-low">
@@ -155,8 +230,8 @@ export class MyTable2122 extends LitElement {
                     <td>meindert.scholma@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-LEIVA-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-LEIVA-18</code></td>
                     <td>Leiderschapsvaardigheden</td>
                     <td>10</td>
                     <td>Opdracht leiderschapsvaardigheden</td>
@@ -173,8 +248,8 @@ export class MyTable2122 extends LitElement {
                     <td>pieter.schilder@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-PRAKBD-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-PRAKBD-18</code></td>
                     <td>Praktijk Business Developer</td>
                     <td>5</td>
                     <td>Verslag Praktijk Stage</td>
@@ -191,8 +266,8 @@ export class MyTable2122 extends LitElement {
                     <td>rob.vanbemmelen@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-RESM2-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-RESM2-18</code></td>
                     <td>Resource Management 2</td>
                     <td>5</td>
                     <td>Opdracht Resource Management 2</td>
@@ -209,8 +284,8 @@ export class MyTable2122 extends LitElement {
                     <td>suzanne.boel@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-RMVV-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-RMVV-18</code></td>
                     <td>Relatiemanagement & verkoopvaardigheden</td>
                     <td>5</td>
                     <td>VERSLAG-Reflectieverslag</td>
@@ -227,8 +302,8 @@ export class MyTable2122 extends LitElement {
                     <td>deniz.seyhan@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-INNOP-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-INNOP-18</code></td>
                     <td>Innovatieproject</td>
                     <td>5</td>
                     <td>toets - VERSLAG</td>
@@ -245,8 +320,8 @@ export class MyTable2122 extends LitElement {
                     <td>michael.makowski@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-ANVA-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-ANVA-18</code></td>
                     <td>Analyse vaardigheden</td>
                     <td>5</td>
                     <td>Individueel Dossier - VERSLAG</td>
@@ -263,8 +338,8 @@ export class MyTable2122 extends LitElement {
                     <td>paul.venderaa@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-CGPM-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-CGPM-18</code></td>
                     <td>Gedrag en cultuur in projecten</td>
                     <td>5</td>
                     <td>toets - VERSLAG</td>
@@ -281,8 +356,8 @@ export class MyTable2122 extends LitElement {
                     <td>michael.makowski@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-PRVA-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-PRVA-18</code></td>
                     <td>Projectmanagementvaardigheden</td>
                     <td>5</td>
                     <td>assessment - ASSESSMENT</td>
@@ -299,8 +374,8 @@ export class MyTable2122 extends LitElement {
                     <td>jasper.vandenbrink@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-MKGM1-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-MKGM1-18</code></td>
                     <td>Marketing Management 1</td>
                     <td>5</td>
                     <td>Toets MM1</td>
@@ -317,8 +392,8 @@ export class MyTable2122 extends LitElement {
                     <td>daan.regenbogen@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-CRMEV-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-CRMEV-18</code></td>
                     <td>CRM en E-Commerce analysevaardigheden</td>
                     <td>5</td>
                     <td>VERSLAG MET DEELOPDRACHTEN</td>
@@ -335,8 +410,8 @@ export class MyTable2122 extends LitElement {
                     <td>jurgen.huige@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-MKGM2-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-MKGM2-18</code></td>
                     <td>Marketing Management 2</td>
                     <td>5</td>
                     <td>TOETS MM2</td>
@@ -353,8 +428,8 @@ export class MyTable2122 extends LitElement {
                     <td>deniz.seyhan@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-PRAKBL-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-PRAKBL-18</code></td>
                     <td>Praktijk Business Leader</td>
                     <td>10</td>
                     <td>Assessment Praktijk Business Leader</td>
@@ -373,8 +448,8 @@ export class MyTable2122 extends LitElement {
                     <td>leonie.stolk@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-RESM1-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-RESM1-18</code></td>
                     <td>Resource Management 1</td>
                     <td>5</td>
                     <td>toets Resource Management 1</td>
@@ -391,8 +466,8 @@ export class MyTable2122 extends LitElement {
                     <td>grietje.vanzijl@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-VBVA-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-VBVA-18</code></td>
                     <td>Verbeter vaardigheden</td>
                     <td>5</td>
                     <td>Individueel Dossier - VERSLAG</td>
@@ -409,8 +484,8 @@ export class MyTable2122 extends LitElement {
                     <td>andré.ras@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-PROJM-1</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-PROJM-1</code></td>
                     <td>Projectmanagement</td>
                     <td>5</td>
                     <td colspan="3"><table class="inside-table-medium">
@@ -429,8 +504,8 @@ export class MyTable2122 extends LitElement {
                     <td>jeroen.haak@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-BEDRAN-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-BEDRAN-18</code></td>
                     <td>Bedrijfsanalyse</td>
                     <td>5</td>
                     <td>open vragen en MC-vragen - TENTAMEN</td>
@@ -447,8 +522,8 @@ export class MyTable2122 extends LitElement {
                     <td>daan.regenbogen@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-BEDRID-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-BEDRID-18</code></td>
                     <td>Bedrijfsidentificatie</td>
                     <td>5</td>
                     <td>open vragen en MC-vragen - TENTAMEN</td>
@@ -465,8 +540,8 @@ export class MyTable2122 extends LitElement {
                     <td>jeroen.haak@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-PRAKBA-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-PRAKBA-18</code></td>
                     <td>Praktijk Business Analyst</td>
                     <td>10</td>
                     <td colspan="3"><table class="inside-table-medium">
@@ -484,8 +559,8 @@ export class MyTable2122 extends LitElement {
                     <td>leonie.stolk@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-PRAKPM-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-PRAKPM-18</code></td>
                     <td>Praktijk Projectmanagement</td>
                     <td>10</td>
                     <td>audit - ASSESSMENT</td>
@@ -502,8 +577,8 @@ export class MyTable2122 extends LitElement {
                     <td>jasper.vandenbrink@hu.nl</td>
                     <td>Gewerkte uren blijven staan mits aantoonbaar voldoende beoordeeld d.m.v. opdrachtgever en/of bewijs van gewerkte uren</td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-PRAKPM-18</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-PRAKPM-18</code></td>
                     <td>Praktijk Projectmanagement</td>
                     <td>10</td>
                     <td>audit - ASSESSMENT</td>
@@ -520,8 +595,8 @@ export class MyTable2122 extends LitElement {
                     <td>bas.degraaff@hu.nl</td>
                     <td>Van toepassing indien nog helemaal niet gestart is met MBBU-H-PRAKPM-18</td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-OENG-19</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-OENG-19</code></td>
                     <td>Organisatie en gedrag</td>
                     <td>5</td>
                     <td>toets-OPDRACHT</td>
@@ -538,8 +613,8 @@ export class MyTable2122 extends LitElement {
                     <td>deniz.seyhan@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-PROSM-19</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-PROSM-19</code></td>
                     <td>Procesmanagement</td>
                     <td>5</td>
                     <td colspan="3"><table class="inside-table-medium">
@@ -558,8 +633,8 @@ export class MyTable2122 extends LitElement {
                     <td>jurgen.huigge@hu.nl</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>MBBU-H-PROPRA-19</td>
+                <tr class="rij">
+                    <td><code>MBBU-H-PROPRA-19</code></td>
                     <td>Project in praktijk </td>
                     <td>10</td>
                     <td colspan="3"><table class="inside-table">
@@ -585,4 +660,4 @@ export class MyTable2122 extends LitElement {
     }
 }
 
-customElements.define('my-table-2122', MyTable2122);
+customElements.define('sheet-2122', Sheet2122);

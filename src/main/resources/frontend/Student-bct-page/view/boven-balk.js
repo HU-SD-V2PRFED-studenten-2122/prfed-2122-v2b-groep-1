@@ -1,10 +1,8 @@
 import {css, html, LitElement} from "lit";
 
 class BovenBalk extends LitElement {
-
     constructor() {
         super();
-
     }
 
     static styles = css`
