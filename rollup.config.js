@@ -1,9 +1,7 @@
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import html from '@web/rollup-plugin-html';
+
 export default {
-    input: 'src/index.js',
-    output: {
-        dir: 'dist',
-        format: 'esm'
-    },
-    plugins: [nodeResolve()]
+    input: 'pages/*.html',
+    output: { dir: 'dist' },
+    plugins: [html()],
 };
