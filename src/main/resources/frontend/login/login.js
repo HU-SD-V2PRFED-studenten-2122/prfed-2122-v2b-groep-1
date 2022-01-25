@@ -1,0 +1,1 @@
+import './view/namePass.js';
