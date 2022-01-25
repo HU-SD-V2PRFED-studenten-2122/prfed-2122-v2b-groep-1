@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit";
 
-export class Sheet2021 extends LitElement {
+class Sheet1819 extends LitElement {
     constructor() {
         super();
     }
@@ -400,4 +400,4 @@ export class Sheet2021 extends LitElement {
     }
 }
 
-customElements.define('sheet-2021', Sheet2021);
+customElements.define('sheet-1819', Sheet1819);

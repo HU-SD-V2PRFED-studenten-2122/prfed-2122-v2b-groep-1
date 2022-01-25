@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit";
 
-export class Sheet2122 extends LitElement {
+class Sheet2122 extends LitElement {
     constructor() {
         super();
     }

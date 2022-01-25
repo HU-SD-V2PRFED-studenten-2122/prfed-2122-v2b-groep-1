@@ -14,14 +14,6 @@ header {
     font-size: x-large;
 }
 
-h1 {
-    text-align: center;
-    text-decoration: underline;
-    font-weight: 800;
-    padding-top: 0;
-    margin-top: 10px;
-}
-
 .popup {
     display: none;
     position: fixed;
@@ -66,31 +58,4 @@ h1 {
     text-decoration: none;
     cursor: pointer;
     transition-duration: 0.35s;
-}
-
-button.terug, button.verder {
-    height: 10%;
-    width: 12%;
-    margin-top: 0.4%;
-    margin-bottom: auto;
-    background-color: white;
-    border-radius: 5px;
-    border-color: black;
-    border-width: 4px;
-    font-size: xxx-large;
-    font-weight: bolder;
-    cursor: pointer;
-} .terug:hover,.verder:hover {
-      background-color: #dddddd;
-      transition-duration: 0.5s;
-  }
-
-button.terug {
-    float: left;
-    margin-left: 12%;
-}
-
-button.verder {
-    float: right;
-    margin-right: 12%;
 }

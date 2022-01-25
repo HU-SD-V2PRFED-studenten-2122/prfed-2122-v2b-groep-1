@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit";
 
-export class Sheet1819 extends LitElement {
+class Sheet1920 extends LitElement {
     constructor() {
         super();
     }
@@ -103,7 +103,7 @@ export class Sheet1819 extends LitElement {
         return html`
             <div id="cursus-zoeker">
                 <label for="cursuscode" tabindex="1">Cursuscode:</label>
-                <input id="cursuscode" type="text" maxlength="20" placeholder="Vul hier uw cursuscode in." tabindex="2">
+                <input id="cursuscode" tabindex="2" type="text" maxlength="20" placeholder="Vul hier uw cursuscode in.">
                 <button id="zoekKnop" @click="${this.zoekFunctie}" tabindex="3">Zoeken</button>
             </div>
 
@@ -400,4 +400,4 @@ export class Sheet1819 extends LitElement {
     }
 }
 
-customElements.define('sheet-1819', Sheet1819);
+customElements.define('sheet-1920', Sheet1920);
