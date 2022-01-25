@@ -1,5 +1,4 @@
 import './view/bc-lijst.js';
-import './view/zoek-bc.js';
 import './view/boven-balk.js';
 import './view/AddOudeCursus';
 import './view/add-toets.js';

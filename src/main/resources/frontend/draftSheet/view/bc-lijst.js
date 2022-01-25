@@ -41,7 +41,43 @@ export class BcLijst extends connect(store)(LitElement) {
         border-top-color: #b4b4b4;
         border-left-color: #b4b4b4;
     }
-       
+    
+    #zoek-knop {
+        background-color: #7fbaf5;
+        border: none;
+        width: 100px;
+        height: 46px;
+        padding: 10px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+        
+    #zoek-knop:hover {
+        background-color: #6ca0d4;
+    }
+    
+    #zoek-balk {
+        border: none;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        width: 250px;
+        margin-left: 20px;
+        height: 44px;
+        padding-left: 5px;
+        font-size: 15px;
+        background-color: #cccccc;
+    }
+    
+    label {
+        display: block;
+        padding-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 7px;
+        font-family: Avenir LT W01_85 Heavy1475544,Avenir,Arial,sans-serif;
+    }   
        
   `;
 
@@ -72,6 +108,12 @@ export class BcLijst extends connect(store)(LitElement) {
 
     render(){
         return html`
+            <label>
+                <label for="zoek-balk">Zoek in de bezem/conversie sheet.</label>
+                <input type="text" id="zoek-balk" name="zoekbalk-bezem-conversie-sheet">
+                <button id="zoek-knop" name="zoek-knop" @click="${this.zoekFunctie}">Zoek</button>
+            </label>
+            
             <div>
                 <table id="bc-lijst">
                     <tr>
@@ -94,15 +136,23 @@ export class BcLijst extends connect(store)(LitElement) {
                     </tr>
                 </table>
                 <button @click="${this.nieuweRij}" >+</button>
-            </div>    
+            </div>
         `;
     }
 
     nieuweRij () {
 
         const tbody = this.shadowRoot.querySelector('tbody');
+
         let row = document.createElement('tr');
-        for (let i = 0; i < 16; i++) {
+        row.classList.add('rij');
+
+        let code = document.createElement('td');
+        code.setAttribute('contenteditable', 'true')
+        code.classList.add('code')
+        row.appendChild(code)
+
+        for (let i = 0; i < 15; i++) {
             let cell = document.createElement('td')
             cell.setAttribute('contenteditable', 'true')
             row.appendChild(cell);
@@ -176,6 +226,37 @@ export class BcLijst extends connect(store)(LitElement) {
         row.cells.item(14).innerText = cursus.coordinator;
     }
 
+    zoekFunctie() {
+        let input, filter, sheet, tr, code, i, textValue;
+
+        input = this.shadowRoot.getElementById('zoek-balk');
+        filter = input.value.toUpperCase();
+        sheet = this.shadowRoot.getElementById('bc-lijst');
+        tr = sheet.getElementsByClassName('rij');
+
+        for (i = 0; i < tr.length; i++) {
+            code = tr[i].getElementsByClassName('code')[0];
+            textValue = code.textContent || code.innerText;
+
+            if (textValue.toUpperCase().indexOf(filter) > -1 && input.value !== '' && input.value !== '-') {
+                if (i % 2 === 0) {
+                    tr[i].style.backgroundColor = '#f5d7d7';
+                } else {
+                    tr[i].style.backgroundColor = '#c5e1f3';
+                }
+            }
+            else if (input.value === '' || input.value === ' ' || input.value === '-') {
+                if (i % 2 === 0) {
+                    tr[i].style.backgroundColor = '#dddddd';
+                } else {
+                    tr[i].style.backgroundColor = 'white';
+                }
+            }
+            else {
+                tr[i].style.backgroundColor = 'white';
+            }
+        }
+    }
 }
 
 customElements.define('bc-lijst', BcLijst);
