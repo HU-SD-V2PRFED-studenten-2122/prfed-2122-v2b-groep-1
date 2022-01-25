@@ -1,7 +1,7 @@
 import {css, html, LitElement} from "lit";
 import {Cursus} from "../model/Cursus";
 import {CursusService} from "../service/CursusService";
-import {bcLijstService} from "../service/bcLijstService"
+
 
 
 export class addNieuweCursus extends LitElement {
@@ -75,6 +75,7 @@ export class addNieuweCursus extends LitElement {
         super();
         this.cursusService = new CursusService();
         this.newCursusId = null
+
 
     }
 
@@ -192,11 +193,11 @@ export class addNieuweCursus extends LitElement {
 
     addCursus(code, naam, ec, bezemConversie, periode, coordinator ) {
         const newCursus = new Cursus(code, naam, ec, bezemConversie, periode, coordinator, null, null, null, true, null);
-        this.bcLijstService.voegGevuldeRijToe(newCursus);
+
         this.cursusService.addCursus(newCursus);
         this.cursusService.addNieuweCursus(this.oldCursusId, newCursus);
         this.newCursusId = newCursus.id
-        console.log(this.newCursusId)
+
 
         if (this.shadowRoot.querySelector("#add-nieuwe-cursus-buttton").getAttribute("submit") !== null) {
             this.closedialog()

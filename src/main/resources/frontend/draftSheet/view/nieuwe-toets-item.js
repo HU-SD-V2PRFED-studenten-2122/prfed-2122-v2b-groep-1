@@ -25,7 +25,7 @@ export class nieuweToetsItem extends LitElement {
         margin-left: 20px;
      }
      
-     visually-hidden {
+     .visually-hidden {
             display: none;
         }
   `;

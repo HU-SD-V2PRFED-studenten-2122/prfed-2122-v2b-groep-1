@@ -2,6 +2,7 @@ import {css, html, LitElement} from "lit";
 import {Cursus} from "../model/Cursus";
 import {CursusService} from "../service/CursusService";
 import {addNieuweCursus} from "./add-nieuwe-cursus.js";
+import {bcLijstService} from "../service/bcLijstService"
 
 
 export class AddOudeCursus extends LitElement {
@@ -73,6 +74,7 @@ export class AddOudeCursus extends LitElement {
     constructor() {
         super();
         this.cursusService = new CursusService();
+        this.bcLijstService = new bcLijstService();
     }
 
     render(){
@@ -175,6 +177,7 @@ export class AddOudeCursus extends LitElement {
 
 
         if (this.shadowRoot.querySelector("#form1").getAttribute("submit") !== null) {
+            this.bcLijstService.voegGevuldeRijToe(newCursus);
             this.closeDialog()
         }
 
