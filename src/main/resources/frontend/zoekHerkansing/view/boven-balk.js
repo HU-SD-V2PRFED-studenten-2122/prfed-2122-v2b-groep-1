@@ -52,8 +52,8 @@ class BovenBalk extends LitElement {
                                                                                     src="../fotos/hogeschool-utrecht-logo.png"
                                                                                     alt="hu-logo"></a>
                 <a id="sheets-link" href="/src/main/resources/frontend/2020-2021.html">B/C Sheets</a>
-                <a id="sheets-link" href="/src/main/resources/frontend/draft.html">Draft</a>
-                <a id="log-uit" href="/src/main/resources/frontend/login.html">Log uit</a>
+                <a id="sheets-link" href="/src/main/resources/frontend/login.html">Draft</a>
+                <a id="log-uit" href="/src/main/resources/frontend/login.html">Login</a>
             </div>
         `;
     }
