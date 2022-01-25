@@ -1,7 +1,7 @@
 import {css, html, LitElement} from "lit";
 import {Cursus} from "../model/Cursus";
 import {CursusService} from "../service/CursusService";
-import {AddOudeCursus} from "./AddOudeCursus";
+import {bcLijstService} from "../service/bcLijstService"
 
 
 class addNieuweCursus extends LitElement {
@@ -58,6 +58,7 @@ class addNieuweCursus extends LitElement {
     constructor() {
         super();
         this.cursusService = new CursusService();
+        this.bcLijstService = new bcLijstService();
 
     }
 
@@ -147,8 +148,9 @@ class addNieuweCursus extends LitElement {
 
     addCursus(code, naam, ec, bezemConversie, periode, coordinator ) {
         const newCursus = new Cursus(code, naam, ec, bezemConversie, periode, coordinator, null, null, null, true, null);
-        this.cursusService.addCursus(newCursus)
-        this.cursusService.addNieuweCursus(this.oldCursusId, newCursus)
+        this.bcLijstService.voegGevuldeRijToe(newCursus);
+        this.cursusService.addCursus(newCursus);
+        this.cursusService.addNieuweCursus(this.oldCursusId, newCursus);
         this.newCursusId = newCursus.id
 
     }

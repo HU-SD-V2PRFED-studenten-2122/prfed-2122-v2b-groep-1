@@ -1,6 +1,4 @@
 import './view/bc-lijst.js';
-import './view/bc-lijst-item.js';
-import './view/bc-lijst-rij.js';
 import './view/zoek-bc.js';
 import './view/boven-balk.js';
 import './view/AddOudeCursus';
@@ -14,7 +12,6 @@ import './view/nieuwe-toetsen-lijst.js';
 import './view/nieuwe-toets-item.js';
 
 import '@material/mwc-formfield';
-
 
 
 

@@ -1,11 +1,14 @@
 import { createStore, combineReducers } from 'redux';
 import { CursusReducers } from './CursusReducers.js';
 import { ToetsReducers } from './ToetsReducers.js';
+import { BcLijstReducers } from './BcLijstReducers.js';
 
 const rootReducer = combineReducers(
     {
         courseReducer: CursusReducers,
-        toetsReducer: ToetsReducers
+        toetsReducer: ToetsReducers,
+        bcLijstReducer: BcLijstReducers
+
     }
 )
 export const store = createStore(
