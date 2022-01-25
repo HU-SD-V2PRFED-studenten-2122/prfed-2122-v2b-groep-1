@@ -46,7 +46,7 @@ class NamePass extends LitElement {
 
     clickHandlerToHome() {
         console.log("goToHomeHandler");
-        location.href= "/src/main/resources/frontend/index.html";
+        location.href= "../../../../../../index.html";
     }
 
     addLoginUser(naam, wachtwoord) {
