@@ -12,9 +12,9 @@ Groepsproject prfed blok B 2021
    
 ## Functioneel Ontwerp
 
-* [readme functioneel ontwerp](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/blob/main/docs/ReadMe.md)
+* [ReadMe Functioneel Ontwerp](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/blob/main/docs/ReadMe.md)
 
-## Visie/scope Document
+## Visie/Scope Document
 * [Home](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/wiki)
 
 ## Scrum Board
@@ -31,8 +31,8 @@ Het project is onderverdeeld in verschillende user stories, deze user stories zi
 - [Koen](https://github.com/koen1508)
 - [Khairbar](https://github.com/Khaibar-coder34)
 - [Daniel](https://github.com/DanielDmln)
-- [jan](https://github.com/pannie)(gestopt met de opleidng)
-- [alex](https://github.com/eenjesta)(gestopt met de opleiding)
+- [Jan](https://github.com/pannie) (gestopt met de opleiding)
+- [Alex](https://github.com/eenjesta) (gestopt met de opleiding)
 
 
 
