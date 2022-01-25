@@ -6,8 +6,10 @@ Groepsproject prfed blok B 2021
 1. clone de code vanuit de main branch
 2. typ "npm install" in de terminal van het project
 3. typ "npm start" in de terminal
-de applicatie zou nu zichtbaar moeten zijn in de applicatie
-
+4. typ de gegeven links in voor de paginas
+5. homepage: http://localhost:8000/src/main/resources/frontend/index.html
+6. deplopyment is alleen beschikbaar voor de homepage https://hu-sd-v2prfed-studenten-2122.github.io/prfed-2122-v2b-groep-1/
+   
 ## Functioneel Ontwerp
 
 * [readme functioneel ontwerp](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/blob/main/docs/ReadMe.md)
