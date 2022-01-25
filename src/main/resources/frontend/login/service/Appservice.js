@@ -1,11 +1,10 @@
+
 import { createStore, combineReducers } from 'redux';
-import { CursusReducers } from './cursus/CursusReducers.js';
-import { ToetsActionns } from './toets/ToetsActions.js';
+import { UserReducers} from "./UserReducers";
 
 const rootReducer = combineReducers(
     {
-        cursusReducer: CursusReducers,
-        toetsActionns: ToetsActionns
+        userReducer: UserReducers
     }
 )
 export const store = createStore(

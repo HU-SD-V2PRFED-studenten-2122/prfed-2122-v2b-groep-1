@@ -1,5 +1,4 @@
 import {ADD_RIJ, REMOVE_RIJ, ADD_GEVULDE_RIJ} from "./bcLijstActions";
-import {createSelector} from "@reduxjs/toolkit";
 
 let initialState = {
     cursussen: []
