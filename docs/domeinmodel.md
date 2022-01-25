@@ -1,5 +1,8 @@
 # hoofdstuk domeinmodel
 
+Het domeinmodel is best klein maar dat komt omdat er veel data is met het is allemaal van dezelde soort nammelijk cursussen en toetsen. zo'n beetje elke user story gebruikt opseminst 1 van de 2 maar meestal worden ze allebei gebruikt. 
+
+
 User Story [Als onderwijscoördinator wil ik cursussen en toetsen toevoegen aan de draft, zodat ze zichtbaar worden in de draft voor de geauthentiseerde gebruikers.](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/issues/19)
 
 ![domeinmodel user story 1](/docs/fotos/Class%20Diagram1CursusToets.jpg)
