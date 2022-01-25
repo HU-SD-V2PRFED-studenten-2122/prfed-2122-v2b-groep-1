@@ -117,17 +117,11 @@ export class BcLijst extends connect(store)(LitElement) {
         cell.addEventListener('click', function () {
             tbody.deleteRow(row.rowIndex)
         })
-
+        return row
     }
 
     voegGevuldeRijToe (cursus) {
-        const tbody = this.shadowRoot.querySelector('tbody');
-        let row = document.createElement('tr');
-        for (let i = 0; i < 16; i++) {
-            let cell = document.createElement('td')
-            cell.setAttribute('contenteditable', 'true')
-            row.appendChild(cell);
-        }
+        let row = this.nieuweRij();
 
         let wegingen = [];
         let ecs = [];
@@ -180,8 +174,6 @@ export class BcLijst extends connect(store)(LitElement) {
         row.cells.item(12).innerText = ctecs.toString();
         row.cells.item(13).innerText = cursus.periode;
         row.cells.item(14).innerText = cursus.coordinator;
-
-        tbody.appendChild(row);
     }
 
 }
