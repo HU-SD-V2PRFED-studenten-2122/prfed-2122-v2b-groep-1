@@ -1,16 +1,11 @@
 import {css, html, LitElement} from "lit";
+import { connect } from 'pwa-helpers';
+import { store } from '../../service/Appservice';
+import {AddOudeCursus} from "./AddOudeCursus";
 
-
-class cursussenList extends LitElement {
-
-    constructor() {
-        super();
-
-    }
+class cursussenList extends connect(store) (LitElement) {
 
     static styles = css`
-            
- 
             li {
                 border-radius: 5px;
                 border-style: groove;
@@ -24,23 +19,79 @@ class cursussenList extends LitElement {
                margin-left: 20px;
             }
             
+            .visually-hidden {
+            display: none;
+            }
             
         
      `;
 
-    render(){
-        return html`
-            <p>cursussen</p>
-            <ul id="toetsen-list">
-                <li>cursus1<mwc-span @click="${this.removeLi}" class="close">x</mwc-span></li>
-                <li>cursus2<mwc-span @click="${this.removeLi}" class="close">x</mwc-span></li>
-            </ul>
-        `;
+
+    static get properties() {
+        return {
+            courses: {
+                type: Array
+            },
+            oldCursusId: {
+                type: String
+            },
+            allcourses: {
+                type: Array
+            }
+        }
     }
 
-    removeLi() {
-        console.log("a")
+    constructor() {
+        super();
+        this.courses = []
+
     }
+
+    stateChanged(state) {
+        this.allcourses = state.courseReducer.courses;
+        this.allcourses.map( (cursus) => {
+            if (cursus.id === this.oldCursusId) {
+
+                this.courses = cursus.nieuweCursussen
+            }
+        })
+
+        if (this.shadowRoot.querySelector("#new-cursussen") !== null && this.courses!== null) {
+            if (this.courses.length > 0) {
+                this.shadowRoot.querySelector("#new-cursussen").removeAttribute("hidden")
+            } else {
+                this.shadowRoot.querySelector("#new-cursussen").setAttribute("hidden" , true)
+            }
+
+        }
+
+
+    }
+
+    render(){
+
+        if (this.courses != null) {
+            return html`
+                <label id="new-cursussen" hidden>
+                    Nieuwe Cursussen:<span class="visually-hidden">lijst met cursussen</span>
+                    <div>
+                        ${
+                                this.courses.map((cursus) => {
+                                    return html`<cursus-item cursusNaam="${cursus.naamCursus}" oldCursusId="${this.oldCursusId}" newCursusId="${cursus.id}" }></cursus-item>`
+                                })
+                        }
+                    </div>
+                </label>
+                
+        `;
+        }
+
+
+
+
+    }
+
+
 
 }
 

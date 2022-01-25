@@ -4,11 +4,10 @@ import {Toets} from "../../model/Toets";
 import {ToetsService} from "../../service/ToetsService";
 
 
-export class addToets extends LitElement {
+export class addNieuweToetsToets extends LitElement {
 
     static get properties() {
         return {
-
             cursusId: {
                 type: String
             }
@@ -105,6 +104,7 @@ export class addToets extends LitElement {
     addToets(naam, weging, ec) {
         const newToets = new Toets(naam,weging,ec);
         this.toetsService.addToets(newToets)
+        console.log(this.cursusId)
         this.cursusService.addToetsCursus(this.cursusId, newToets)
 
         this.shadowRoot.querySelector('#toets-naam').value = '';
@@ -114,4 +114,4 @@ export class addToets extends LitElement {
 
 }
 
-customElements.define('add-toets', addToets)
+customElements.define('add-nieuwe-toets', addNieuweToetsToets)

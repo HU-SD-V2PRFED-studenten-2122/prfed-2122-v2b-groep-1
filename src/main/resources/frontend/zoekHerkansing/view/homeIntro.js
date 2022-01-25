@@ -8,7 +8,7 @@ class HomePage extends LitElement {
 
                 <div class="hero__container">
                     <h1 class="hero__heading">Kop van uitleg </h1> <br>
-                    <p class="hero__description"><h3>Uitleg over hee het werkt Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatum repellendus inventore reiciendis a voluptates maiores repudiandae autem sit nihil tenetur deleniti consectetur enim natus, sed ullam non iure illo!</h3></p>
+                    <p class="hero__description"><h3>Dit is een bezemConversietool waarin de vervangende vakken opgezocht kunen worden op basis van de geschrapte vakken</h3></p>
 
                 </div>
             </div>

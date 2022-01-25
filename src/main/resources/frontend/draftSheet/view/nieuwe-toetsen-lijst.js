@@ -3,7 +3,7 @@ import { connect } from 'pwa-helpers';
 import { store } from '../../service/Appservice';
 
 
-export class toetsenList extends connect(store)(LitElement) {
+export class nieuweToetsenLijst extends connect(store)(LitElement) {
 
     static styles = css`
             li {
@@ -18,10 +18,13 @@ export class toetsenList extends connect(store)(LitElement) {
             .close {
                margin-left: 20px;
             }
-            
             .visually-hidden {
             display: none;
-        }
+            }
+            
+            .lijst {
+                display: block
+            }
      `;
 
 
@@ -40,15 +43,19 @@ export class toetsenList extends connect(store)(LitElement) {
     }
 
     constructor() {
+
         super();
         this.toetsen = []
-        this.cursusId = ''
+        this.courses = []
     }
 
     stateChanged(state) {
+
         this.courses = state.courseReducer.courses;
+        console.log(this.courses)
         this.courses.map( (cursus) => {
             if (cursus.id === this.cursusId) {
+                console.log(cursus.toetsen)
                 this.toetsen = cursus.toetsen
             }
         })
@@ -60,30 +67,33 @@ export class toetsenList extends connect(store)(LitElement) {
             }
 
         }
-
-
-
+        console.log(this.toetsen)
     }
 
     render(){
+
         if (this.toetsen != null) {
             return html`
-                <label id="lijst-toetsen" hidden>
-                    Toetsen:<span class="visually-hidden">lijst met toetsen</span>
-                    <div>
-                        ${
-                                this.toetsen.map((toets) => {
+                <div id="lijst">
+                    <label id="lijst-toetsen" hidden>
+                        Toetsen:<span class="visually-hidden">lijst met toetsen</span>
 
-                                    return html`<toets-item toetsId="${toets.id}" toetsNaam="${toets.naamToets}" cursusId="${this.cursusId}" }></toets-item>`
-                                })
-                        }
-                    </div>
-                </label>
+                        <div>
+                            ${
+                                    this.toetsen.map((toets) => {
+                                        return html`<nieuw-toets-item toetsId="${toets.id}" toetsNaam="${toets.naamToets}" cursusId="${this.cursusId}" }></nieuw-toets-item>`
+                                    })
+                            }
+                        </div>
+                    </label>
+                </div>
                 
-            `;
+                `;
         }
     }
+
+
+
 }
 
-
-customElements.define('toetsen-list', toetsenList )
+customElements.define('nieuwe-toetsen-list', nieuweToetsenLijst  )
