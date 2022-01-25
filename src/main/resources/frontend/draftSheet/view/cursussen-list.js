@@ -19,6 +19,9 @@ class cursussenList extends connect(store) (LitElement) {
                margin-left: 20px;
             }
             
+            .visually-hidden {
+            display: none;
+            }
             
         
      `;
@@ -31,6 +34,9 @@ class cursussenList extends connect(store) (LitElement) {
             },
             oldCursusId: {
                 type: String
+            },
+            allcourses: {
+                type: Array
             }
         }
     }
@@ -42,14 +48,23 @@ class cursussenList extends connect(store) (LitElement) {
     }
 
     stateChanged(state) {
-        var cursussen;
-        cursussen = state.courseReducer.courses;
-        cursussen.map( (cursus) => {
-
+        this.allcourses = state.courseReducer.courses;
+        this.allcourses.map( (cursus) => {
             if (cursus.id === this.oldCursusId) {
+
                 this.courses = cursus.nieuweCursussen
             }
         })
+
+        if (this.shadowRoot.querySelector("#new-cursussen") !== null && this.courses!== null) {
+            if (this.courses.length > 0) {
+                this.shadowRoot.querySelector("#new-cursussen").removeAttribute("hidden")
+            } else {
+                this.shadowRoot.querySelector("#new-cursussen").setAttribute("hidden" , true)
+            }
+
+        }
+
 
     }
 
@@ -57,14 +72,17 @@ class cursussenList extends connect(store) (LitElement) {
 
         if (this.courses != null) {
             return html`
-                <p>cursussen</p>
-                <div>
-                    ${
-                this.courses.map((cursus) => { 
-                    return html`<cursus-item cursusNaam="${cursus.naamCursus}" oldCursusId="${this.oldCursusId}" newCursusId="${cursus.id}" }></cursus-item>`
-                })
-            }
-                </div>
+                <label id="new-cursussen" hidden>
+                    Nieuwe Cursussen:<span class="visually-hidden">lijst met cursussen</span>
+                    <div>
+                        ${
+                                this.courses.map((cursus) => {
+                                    return html`<cursus-item cursusNaam="${cursus.naamCursus}" oldCursusId="${this.oldCursusId}" newCursusId="${cursus.id}" }></cursus-item>`
+                                })
+                        }
+                    </div>
+                </label>
+                
         `;
         }
 

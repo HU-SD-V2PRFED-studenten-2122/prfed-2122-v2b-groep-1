@@ -18,6 +18,10 @@ export class toetsenList extends connect(store)(LitElement) {
             .close {
                margin-left: 20px;
             }
+            
+            .visually-hidden {
+            display: none;
+        }
      `;
 
 
@@ -28,6 +32,9 @@ export class toetsenList extends connect(store)(LitElement) {
             },
             cursusId: {
                 type: String
+            },
+            courses: {
+                type: Array
             }
         }
     }
@@ -39,26 +46,40 @@ export class toetsenList extends connect(store)(LitElement) {
     }
 
     stateChanged(state) {
-        let cursussen;
-        cursussen = state.courseReducer.courses;
-        cursussen.map( (cursus) => {
+        this.courses = state.courseReducer.courses;
+        this.courses.map( (cursus) => {
             if (cursus.id === this.cursusId) {
                 this.toetsen = cursus.toetsen
             }
         })
+        if (this.shadowRoot.querySelector("#lijst-toetsen") !== null && this.toetsen!== null) {
+            if (this.toetsen.length > 0) {
+                this.shadowRoot.querySelector("#lijst-toetsen").removeAttribute("hidden")
+            } else {
+                this.shadowRoot.querySelector("#lijst-toetsen").setAttribute("hidden" , true)
+            }
+
+        }
+
+
+
     }
 
     render(){
         if (this.toetsen != null) {
             return html`
-                <p>toetsen</p>
-                <div>
-                    ${
-                            this.toetsen.map((toets) => {
-                                return html`<toets-item toetsId="${toets.id}" toetsNaam="${toets.naamToets}" cursusId="${this.cursusId}" }></toets-item>`
-                            })
-                    }
-                </div>
+                <label id="lijst-toetsen" hidden>
+                    Toetsen:<span class="visually-hidden">lijst met toetsen</span>
+                    <div>
+                        ${
+                                this.toetsen.map((toets) => {
+
+                                    return html`<toets-item toetsId="${toets.id}" toetsNaam="${toets.naamToets}" cursusId="${this.cursusId}" }></toets-item>`
+                                })
+                        }
+                    </div>
+                </label>
+                
             `;
         }
     }

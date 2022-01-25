@@ -24,6 +24,10 @@ export class ToetsLijstItem extends LitElement {
     .close {
         margin-left: 20px;
      }
+     
+     .visually-hidden {
+            display: none;
+        }
   `;
 
     static properties = {
@@ -48,7 +52,7 @@ export class ToetsLijstItem extends LitElement {
 
     render() {
         return html`
-            <li>${this.toetsNaam}<span @click="${this.delete}" class="close">x</span></li>
+            <li><a href="#">${this.toetsNaam}<a href="#" @click="${this.delete}" class="close">x<span class="visually-hidden">verwijder lijst item</span></a></a></li>
         `;
     }
 

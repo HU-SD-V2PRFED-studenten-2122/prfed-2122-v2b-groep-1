@@ -1,7 +1,7 @@
 import {css, html, LitElement} from "lit";
 import {Cursus} from "../model/Cursus";
 import {CursusService} from "../service/CursusService";
-import {toetsenList} from "./toetsen-list";
+import {addNieuweCursus} from "./add-nieuwe-cursus.js";
 
 
 export class AddOudeCursus extends LitElement {
@@ -10,7 +10,7 @@ export class AddOudeCursus extends LitElement {
         #oudeCursusDialog {
             border: 0.5rem outset #00a1e1;
             width: 40%;
-            height: 700px;
+            height: 900px;
             }
         input, select {
             width: 100%;
@@ -36,12 +36,36 @@ export class AddOudeCursus extends LitElement {
         .cursus-button:hover {
             background-color: grey;
         }
+        
+        .visually-hidden {
+            display: none;
+        }
+        
+        #open-toets-scherm-button {
+            display: block;
+            margin-bottom: 20px;
+         }
+         
+         #submit-button {
+            display: block;
+            margin-top: 20px;
+         }
+         
+         #submit-button{
+            display: inline-block;
+         }
+         
+         
+        
      `;
 
     static get properties() {
         return {
             cursusId: {
                 type: String
+            } ,
+            cursus: {
+                type: Object
             }
         }
     }
@@ -53,38 +77,56 @@ export class AddOudeCursus extends LitElement {
 
     render(){
         return html`
-            <button class="cursus-button" @click="${this.openDialog}">voeg cursus toe</button>
+            
+            <button class="cursus-button"  @click="${this.openDialog}"><span class="visually-hidden">voeg cursus toe dialoog</span>voeg cursus toe</button>
             
             <dialog id="oudeCursusDialog">
                 <h2>Voer oude Cursus in</h2>
-                <form id="form1" onsubmit="return false">
-                    <label for="cursus-code"></label>
-                    <input required type="text" class="maakCursus" id="cursus-code" name="cursus-code" placeholder="Cursus Code">
-                    <label for="cursus-naam"></label>
-                    <input required type="text" class="maakCursus" id="cursus-naam" name="cursus-naam" placeholder="Cursus Naam">
-                    <label for="ec-cursus"></label>
-                    <input required type="number" class="maakCursus" step="0.5" id="ec-cursus" name="aantal-ec-voor-cursus" placeholder="EC-Cursus">
-                    <label for="bezem-conversie"></label>
+                
+                <form id="form1" @submit="${this.clickHandler}">
+                    <label for="cursus-code">Cursus Code</label>
+                    <input required type="text" class="maakCursus" id="cursus-code" name="cursus-code">
+                    <label for="cursus-naam" >cursus naam</label>
+                    <input required type="text" class="maakCursus" id="cursus-naam" name="cursus-naam" >
+                    <label for="ec-cursus">aantal-ec</label>
+                    <input required type="number" class="maakCursus" step="0.5" id="ec-cursus" name="aantal-ec-voor-cursus" >
+                    <label for="bezem-conversie">bezem/conversie</label>
                     <select required id="bezem-conversie" class="maakCursus" name="bezem-of-conversie" >
-                        <option value="" disabled selected hidden>bezem/conversie</option>
+                        <option value="" disabled selected hidden></option>
                         <option>bezem</option>
                         <option>conversie</option>
                     </select>
-                    <button class="cursus-button" @click="${this.clickHandler}" id="open-toets-scherm-button">Add Toets</button>
+                    
+                    <button type="submit" @click="${this.toetsToevoegen}" class="cursus-button" id="open-toets-scherm-button"><span class="visually-hidden">voeg toets toe veld</span>toets toevoegen</button>
+                    
+                    
+                    <label for="toetsen-list"><span class="visually-hidden">lijst met toetsen</span></label>
+                    <toetsen-list id="toetsen-list" cursusId="${this.cursusId}"></toetsen-list>
+                   
+                    <add-toets cursusId="${this.cursusId}"  id="add-toets-component" ></add-toets>
+                    <cursussen-list id="cursus-lsit" oldCursusId="${this.cursusId}"></cursussen-list>
+                    <add-nieuwe-cursus oldCursusId="${this.cursusId}" ></add-nieuwe-cursus>
+
+                    
+                    <button type="submit" class="cursus-button" id="submit-button" @click="${this.submit}" >Submit</button>
+                    <button class="cursus-button" @click="${this.closeDialog}">cancel</button>
+                    
+                    
                 </form>
+
                 
-                <toetsen-list id="toetsen-list" cursusId="${this.cursusId}"></toetsen-list>
-                <add-toets cursusId="${this.cursusId}"  id="add-toets-component" ></add-toets>
-                <cursussen-list oldCursusId="${this.cursusId}"></cursussen-list>
-                <add-nieuwe-cursus oldCursusId="${this.cursusId}" ></add-nieuwe-cursus>
                 
-                <button class="cursus-button" @click="${this.closeDialog}">cancel</button>
-                <button class="cursus-button" @click="${this.submit}">Submit</button>
+                
             </dialog>
+            
         `;
     }
 
     openDialog() {
+
+        const form = this.shadowRoot.querySelector("#form1")
+        form.addEventListener('submit', event => {event.preventDefault()})
+
         this.shadowRoot.querySelector("#oudeCursusDialog").showModal()
         this.cursusId = ''
         this.shadowRoot.querySelector("#add-toets-component").setAttribute("hidden", true)
@@ -92,43 +134,54 @@ export class AddOudeCursus extends LitElement {
     }
 
     closeDialog() {
-        this.shadowRoot.querySelector('#toetsen-list')
         this.shadowRoot.querySelector('#cursus-code').value = ''
         this.shadowRoot.querySelector('#cursus-naam').value = ''
         this.shadowRoot.querySelector('#ec-cursus').value = ''
         this.shadowRoot.querySelector('#bezem-conversie').value = ''
+        this.shadowRoot.querySelector("#submit-button").removeAttribute("submit")
         this.cursusId = ''
         this.shadowRoot.querySelector("#oudeCursusDialog").close()
 
     }
+    toetsToevoegen(){
+        this.shadowRoot.querySelector("#form1").removeAttribute("submit")
+    }
+
+    submit() {
+        this.shadowRoot.querySelector("#form1").setAttribute("submit", true)
+    }
 
 
     clickHandler() {
-
         this.shadowRoot.querySelector("#open-toets-scherm-button").setAttribute("hidden", true)
         this.shadowRoot.querySelector("#add-toets-component").removeAttribute("hidden")
 
-        var code = this.shadowRoot.querySelector('#cursus-code').value;
-        var naam = this.shadowRoot.querySelector('#cursus-naam').value;
-        var ec = this.shadowRoot.querySelector('#ec-cursus').value;
-        var bezemConversie = this.shadowRoot.querySelector('#bezem-conversie').value;
+        const code = this.shadowRoot.querySelector('#cursus-code').value;
+        const naam = this.shadowRoot.querySelector('#cursus-naam').value;
+        const ec = this.shadowRoot.querySelector('#ec-cursus').value;
+        const bezemConversie = this.shadowRoot.querySelector('#bezem-conversie').value;
+
 
         this.addCursus(code,naam,ec,bezemConversie);
+
+
     }
 
 
     addCursus(code, naam, ec, bezemConversie) {
-            const newCursus = new Cursus(code, naam, ec, bezemConversie, null, null, null, null, null, true, null);
-            this.cursusService.addCursus(newCursus)
-            this.cursusId = newCursus.id
+        const newCursus = new Cursus(code, naam, ec, bezemConversie, null, null, null, null, null, true, null);
+        this.cursusService.addCursus(newCursus)
+        this.cursusId = newCursus.id
+
+
+        if (this.shadowRoot.querySelector("#form1").getAttribute("submit") !== null) {
+            this.closeDialog()
+        }
+
+
+
     }
 
-    submit() {
-        //toevoegen aan de draft
-        this.clickHandler()
-        this.closeDialog()
-
-    }
 }
 
 customElements.define('add-oude-cursus', AddOudeCursus)
