@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Log in</title>
+    <script type="module" src="login/login.js"></script>
+    <link rel="stylesheet" href="login/longin.css">
+
+    <script>
+        // HACK(keanulee): The Redux package assumes `process` exists - mock it here before
+        // the module is loaded.
+        window.process = {
+            env: {
+                NODE_ENV: 'production'
+            }
+        };
+    </script>
 </head>
 <body>
+
+<main>
+    <name-pass></name-pass>
+</main>
 
 </body>
 </html>

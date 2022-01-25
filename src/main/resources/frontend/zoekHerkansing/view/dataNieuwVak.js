@@ -8,9 +8,10 @@ class DataNieuwVak extends LitElement{
 
     render() {
         return html `
+            
+            
             <div class="hero" id="home">
                 <div class="hero__container">
-                    <h2>new web component</h2>
                     
                 </div>
             </div>
@@ -34,15 +35,33 @@ class DataNieuwVak extends LitElement{
         .hero {
             background: #e9e2e2;
             background: linear-gradient(to right, #f5d7d7, #c5e1f3);
-            padding: 60px 0;
+            padding: 10px 0;
         }
         .hero__container {
             display: flex;
             flex-direction: column;
-            max-width: 1000px;
+            // max-width: 1000px;
             margin: 0 auto;
             height: 90%;
             padding: 30px;
+        }
+        
+        .newVakData {
+        
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+          
+        }  
+
+        .newVakData td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        .newVakData tr:nth-child(even) {
+          background-color: #dddddd;
         }
         `;
     }
