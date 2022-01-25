@@ -22,14 +22,14 @@ class NamePass extends LitElement {
         return html`
             <div class="hero" id="home">
                 <img src="/src/main/resources/fotos/homeIcon.png" alt="homeIcone" height="70" width="70"><br>
-                <button class="main__btn"> Home</button>
+                <button tabindex="1" class="main__btn"> Home</button>
                 <div class="hero__container">
-                    <label> Naam:</label>
-                    <input id="userName" type="text" name="firstname" />
+                    <label tabindex="2"> Naam:</label>
+                    <input tabindex="3" id="userName" type="text" name="firstname" />
                     <br>
-                    <label >Wachtwoord: </label>
-                    <input id="userPass" type="text"  name="lastname" />
-                    <button class="main__btn" @click="${this.clickHandler}"> Inloggen </button>
+                    <label tabindex="4" >Wachtwoord: </label>
+                    <input tabindex="5" id="userPass" type="text"  name="lastname" />
+                    <button tabindex="6" class="main__btn" @click="${this.clickHandler}"> Inloggen </button>
                 </div>
             </div>
         `;
@@ -87,7 +87,6 @@ class NamePass extends LitElement {
             cursor: pointer;
             position: relative;
             transition: all 0.4s;
-            outline: none;          
         }        
         .main__btn:hover {
           background: linear-gradient(to right, #c5e1f3, #f5d7d7);
