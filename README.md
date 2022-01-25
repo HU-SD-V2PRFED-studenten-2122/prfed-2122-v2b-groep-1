@@ -1,6 +1,6 @@
 
 # Project Frond-End Development
-Groepsproject prfed blok B 2021
+Groepsproject PRFED blok B 2021
 
 ## gebruikersinstallatie 
 1. clone de code vanuit de main branch
@@ -16,6 +16,7 @@ Groepsproject prfed blok B 2021
 
 ## Visie/Scope Document
 * [Home](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/wiki)
+* [Organisatorische Context](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/wiki/Organisatorische-Context)
 
 ## Scrum Board
 * [Iteratie 1](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/projects/1)
