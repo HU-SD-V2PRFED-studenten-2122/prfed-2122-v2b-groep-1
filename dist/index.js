@@ -686,8 +686,8 @@ class BovenBalk extends s {
                                                                                     src="../fotos/hogeschool-utrecht-logo.png"
                                                                                     alt="hu-logo"></a>
                 <a id="sheets-link" href="/src/2020-2021.html">B/C Sheets</a>
-                <a id="sheets-link" href="/src/login.html">Draft</a>
-                <a id="log-uit" href="/src/login.html">Login</a>
+                <a id="sheets-link" href="/login.html">Draft</a>
+                <a id="log-uit" href="/login.html">Login</a>
             </div>
         `;
     }

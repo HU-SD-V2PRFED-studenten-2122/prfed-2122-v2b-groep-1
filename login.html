@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Log in</title>
+    <script type="module" src="src/main/resources/frontend/login/login.js"></script>
+    <link rel="stylesheet" href="src/main/resources/frontend/login/longin.css">
 
-    <script type="module" src="main/resources/frontend/draftSheet/draft.js"></script>
     <script>
         // HACK(keanulee): The Redux package assumes `process` exists - mock it here before
         // the module is loaded.
@@ -16,28 +18,12 @@
             }
         };
     </script>
-    <title> draft sheet</title>
-
-
 </head>
-<link rel="stylesheet" href="main/resources/frontend/draftSheet/draft.css">
 <body>
 
-<boven-balk></boven-balk>
-
-
-<div id="uitleg">
-    <h1>hier onder kunt u in het bezem/conversie sheet zoeken gebaseerd op cursus naam.</h1>
-</div>
-
-
-
-
-<bc-lijst></bc-lijst>
-<add-oude-cursus></add-oude-cursus>
-<keuring></keuring>
-<importeer></importeer>
-
+<main>
+    <name-pass></name-pass>
+</main>
 
 </body>
 </html>
