@@ -29,7 +29,7 @@ class BovenBalk extends LitElement {
                 margin-left: 20px;
             }
             
-            #log-uit {
+            #log-in {
                 float: right;
                 margin-top: 15px;
             }
@@ -46,7 +46,7 @@ class BovenBalk extends LitElement {
                 border-bottom: 4px solid #00a1e1;
             }
             
-            #log-uit:hover {
+            #log-in:hover {
                 border-bottom: 4px solid #df2e2a;
             }
         `;
@@ -58,8 +58,8 @@ class BovenBalk extends LitElement {
                                                                                     src="../fotos/hogeschool-utrecht-logo.png"
                                                                                     alt="hu-logo"></a>
                 <a id="sheets-link" href="/src/main/resources/frontend/2021-2022.html">B/C Sheets</a>
-                <a id="sheets-link" href="/src/main/resources/frontend/draft.html">Draft</a>
-                <a id="log-uit" class="uitloggen" href="../../login.html">Log uit</a>
+                <a id="sheets-link" href="/src/main/resources/frontend/login.html">Draft</a>
+                <a id="log-in" class="uitloggen" href="/src/main/resources/frontend/login.html">Login</a>
             </div>
         `;
     }

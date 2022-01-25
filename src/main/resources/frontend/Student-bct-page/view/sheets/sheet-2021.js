@@ -55,9 +55,10 @@ class Sheet2021 extends LitElement {
             width: 175px;
             margin-right: 1px;
             font-style: italic;
+            border: 2px solid black;
         } input:hover {
             border-radius: 3px;
-            border-color: #a1a1a1;
+            transition-duration: 0.1s;
         }
         
         button {
@@ -65,11 +66,16 @@ class Sheet2021 extends LitElement {
             padding-right: 12px;
             padding-top: 2px;
             padding-bottom: 2px;
+            border: 2px solid black;
         } button:hover {
             cursor: pointer;
-            border-radius: 1px;
+            border-radius: 3px;
             background-color: #dddddd;
             transition-duration: 0.1s;
+        } button:active {
+            border-radius: 3px;
+            background-color: #a1a1a1;
+            transition-duration: 0s;
         }
     
         table {

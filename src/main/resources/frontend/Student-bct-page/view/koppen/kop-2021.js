@@ -27,8 +27,11 @@ class Kop2021 extends LitElement {
             font-weight: bolder;
             cursor: pointer;
         } button:hover {
-              background-color: #dddddd;
-              transition-duration: 0.5s;
+            background-color: #dddddd;
+            transition-duration: 0.4s;
+        } button:active {
+            background-color: #a1a1a1;
+            transition-duration: 0s;
         }
 
         button.terug {
