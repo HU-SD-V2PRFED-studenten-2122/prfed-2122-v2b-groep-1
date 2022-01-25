@@ -15,8 +15,7 @@ Groepsproject PRFED blok B 2021
 * [ReadMe Functioneel Ontwerp](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/blob/main/docs/ReadMe.md)
 
 ## Visie/Scope Document
-* [Home](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/wiki)
-* [Organisatorische Context](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/wiki/Organisatorische-Context)
+* [Wiki](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/wiki)
 
 ## Scrum Board
 * [Iteratie 1](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/projects/1)
