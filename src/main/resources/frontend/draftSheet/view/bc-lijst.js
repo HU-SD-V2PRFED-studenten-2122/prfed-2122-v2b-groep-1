@@ -94,7 +94,6 @@ export class BcLijst extends connect(store)(LitElement) {
                     </tr>
                 </table>
                 <button @click="${this.nieuweRij}" >+</button>
-                <button @click="${this.test}" >-</button>
             </div>    
         `;
     }
@@ -119,11 +118,6 @@ export class BcLijst extends connect(store)(LitElement) {
             tbody.deleteRow(row.rowIndex)
         })
 
-    }
-
-    test () {
-        let c = new Cursus('cu', 'cursus', 10, 'bezem', 'A', 'jan', null, '', 1, 'draft', null);
-        this.bcLijstService.voegGevuldeRijToe(c)
     }
 
     voegGevuldeRijToe (cursus) {
