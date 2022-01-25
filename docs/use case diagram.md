@@ -2,7 +2,7 @@
 
 # klasse Cursus
 
-![use case diagram Curus](/docs/fotos/Use%20Case%20Diagram2.cursus.jpg)
+![use case diagram Curus](/docs/fotos/Use%20Case%20Diagram.laatste.jpg)
 
 ## actor beschrijvingen
 **examencomissie**, controleert de cursussen en de toetsen of het voldoet aan de eisen.
@@ -32,9 +32,9 @@
 
 **Delete course** kan alleen worden uitgevoerd door de onderwijscoördinator. De onderwijscoördinator kan een cursus direct verwijderen vanuit de draft
 
-**Delete new course** is kan op twee manieren worden uitgevoerd door een onderwijscoördinator. De eerste manier is om simpelweg de nieuwe cursus te verwijderen uit de draft, en de tweede manier is door de oude cursus te verwijderen uit de draft.
+**Delete new course** is kan op drie manieren worden uitgevoerd door een onderwijscoördinator. De eerste manier is om simpelweg de nieuwe cursus te verwijderen uit de draft, en de tweede manier is door de oude cursus te verwijderen uit de draft. verder kan een nieuwe cursus verwijdered worden bij het aanmaken.
 
-**Delete test** kan alleen worden uitgevoerd door de onderwijscoördinator. Delete test kan op twee manieren worden aangeroepen, de eerste manier is om de toets direct te verwijderen vanuit de draft. De tweede manier is om de cursus te verwijderen, want dan worden de bijbehorende toetsen ook verwijderd.
+**Delete test** kan alleen worden uitgevoerd door de onderwijscoördinator. Delete test kan op vier manieren worden aangeroepen, de eerste manier is om de toets direct te verwijderen vanuit de draft. De tweede manier is om de cursus te verwijderen, want dan worden de bijbehorende toetsen ook verwijderd. verder kan een test worden verwijderd bij het aanmaken van een nieuwe en een oude cursus.
 
 **Edit course** kan alleen worden uitgevoerd door de onderwijscoördinator. De onderwijscoordinator kan een course editen vanuit de draft.
 
