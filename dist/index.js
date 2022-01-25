@@ -209,7 +209,7 @@ class ZoekVak extends s{
         // Declare variables
         var input, filter, ul, li, a, i, txtValue;
         input = this.shadowRoot.getElementById('myInput');
-        
+
         if (input.value === '') {
             this.shadowRoot.querySelector("#myUL").setAttribute("hidden", true);
         }
@@ -685,9 +685,9 @@ class BovenBalk extends s {
                 <a id="hu-logo" href="/src/main/resources/frontend/index.html"><img height="60" width="180"
                                                                                     src="../fotos/hogeschool-utrecht-logo.png"
                                                                                     alt="hu-logo"></a>
-                <a id="sheets-link" href="/src/main/resources/frontend/2020-2021.html">B/C Sheets</a>
-                <a id="sheets-link" href="/src/main/resources/frontend/login.html">Draft</a>
-                <a id="log-uit" href="/src/main/resources/frontend/login.html">Login</a>
+                <a id="sheets-link" href="/src/2020-2021.html">B/C Sheets</a>
+                <a id="sheets-link" href="/src/login.html">Draft</a>
+                <a id="log-uit" href="/src/login.html">Login</a>
             </div>
         `;
     }

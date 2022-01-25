@@ -54,7 +54,7 @@ class NamePass extends LitElement {
         const newUser = new User(naam, wachtwoord);
         this.userService.addUser(newUser);
         console.log(newUser)
-        location.href = "/src/main/resources/frontend/draft.html";
+        location.href = "../../../../../draft.html";
     }
 
     static get styles() {
