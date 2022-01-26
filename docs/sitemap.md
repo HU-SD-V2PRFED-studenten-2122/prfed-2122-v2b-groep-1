@@ -7,4 +7,4 @@ genavigeerd kan worden.
 
 Hieronder ziet u de Sitemap van onze website:
 
-[Sitemap](docs/fotos/Sitemap.jpg)
+![Sitemap](/docs/fotos/Sitemap.jpg)
