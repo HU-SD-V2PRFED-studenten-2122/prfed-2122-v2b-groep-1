@@ -26,7 +26,8 @@ Verder kan je op deze pagina naast de label 'Cursuscode:' een cursuscode intypen
 ![tweede wireframe van de b/c sheet pagina](/docs/fotos/Wireframe%202021-2022.html%202.0.jpg)
 
 Zoals eerder verteld zijn er dus twee manieren om op de loginpagina te komen, via 'Draft' en 'Login', allebei in de bovenbalk. De reden dat je hier via Draft ook heengestuurd wordt is omdat de gebruiker wel toegang moet hebben tot de draft-sheet, en dat mag niet iedereen hebben. Degenen die hier officieel toegang tot hebben zijn de docenten, cursuscoördinatoren, onderwijscoördinator en examencommissie. Voor hun is deze functie dus ook een belangrijke [user story](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/issues/7), namelijk geauthoriseerd en veilig gebruik kunnen maken van de draft-sheet, zonder dat anderen deze zomaar kunnen wijzigen. 
-Echter hebben wij geen back-end, hierom is alleen het inloggen zelf vereist en wordt geen gebruik gemaakt van authorisatie. De inlogpagina is hieronder te zien:
+Echter hebben wij geen back-end, hierom is alleen het inloggen zelf vereist en wordt geen gebruik gemaakt van authorisatie.  
+De inlogpagina is echter ook de enige pagina zonder bovenbalk, wel bevat het een 'Home' knop, waarmee een gebruiker terug kan gaan naar de homepagina. Door in te loggen kan een gebruiker doorgaan naar de draft-pagina. Hieronder de login-pagina:
 
 ![wireframe van de inlogpagina](/docs/fotos/Wireframe%20login.html.jpg)
 
