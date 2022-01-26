@@ -34,7 +34,7 @@ Dan als laatste: de draft pagina. Hier kun je alleen via de loginpagina komen na
 
 ![wireframe van de draftpagina](/docs/fotos/Wireframe%20draft.html.jpg)
 
-Het toevoegen van een cursus ziet er als volgt uit, na op 'voeg cursus toe' gedrukt te hebben, wat trouwens nog een belangrijke [user story](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/issues/19) is, opent zich dit scherm:
+Het toevoegen van een cursus ziet er als volgt uit, na op 'voeg cursus toe' gedrukt te hebben, wat trouwens nog een belangrijke [user story](https://github.com/HU-SD-V2PRFED-studenten-2122/prfed-2122-v2b-groep-1/issues/19) is, opent zich deze popup:
 
 ![tweede wireframe van de draftpagina](/docs/fotos/Wireframe%20draft.html%202.0.jpg)
 
