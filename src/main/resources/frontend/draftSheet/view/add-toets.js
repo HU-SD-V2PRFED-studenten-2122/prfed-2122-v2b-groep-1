@@ -72,14 +72,14 @@ export class addToets extends LitElement {
         return html`
             <div id="add-toets" >
                 <h3>Voeg toets toe</h3>
-                <form id="formOudeToets" @submit="${this.clickHandler}">
+                <form id="formOudeToets" onsubmit="return false">
                     <label for="toets-naam">toets naam</label>
                     <input type="text" class="maakCursus" id="toets-naam" name="toets-naam" required>
                     <label for=" ">weging toets</label>
                     <input type="number"  class="maakCursus" id="weging-toets" name="weging-toets" required>
                     <label for="ec-toets">ec toets</label>
                     <input type="number" class="maakCursus" step="0.5" id="ec-toets" name="aantal-ec-voor-toets" required>
-                    <button type="submit" class="cursus-button" id="add-toets-button" >add toets</button>
+                    <button type="submit" class="cursus-button" id="add-toets-button" @click="${this.clickHandler}" >add toets</button>
                 </form>
             </mwc-div>
             
@@ -92,8 +92,8 @@ export class addToets extends LitElement {
     }
 
     clickHandler() {
-        const form = this.shadowRoot.querySelector('#formOudeToets')
-        form.addEventListener('submit', event => {event.preventDefault()})
+        //const form = this.shadowRoot.querySelector('#formOudeToets')
+        //form.addEventListener('submit', event => {event.preventDefault()})
 
         var naam = this.shadowRoot.querySelector('#toets-naam').value;
         var weging = this.shadowRoot.querySelector('#weging-toets').value;
